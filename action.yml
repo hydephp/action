@@ -97,6 +97,21 @@ runs:
         name: build
         path: _site # TODO: Get this from the config file in case it's customized
 
+    - name: Setup Pages
+      if: inputs.deploy == 'pages'
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact
+      if: inputs.deploy == 'pages'
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: _site # TODO: Get this from the config file in case it's customized
+
+    - name: Deploy to GitHub Pages
+      id: pages-deployment
+      if: inputs.deploy == 'pages'
+      uses: actions/deploy-pages@v1
+
     # Now that the site is built, there are a few options for deployment.
     # We could push directly to the gh-pages branch, commit files to /docs,
     # or even use the GitHub Pages action to deploy the compiled site.
