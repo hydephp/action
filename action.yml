@@ -72,7 +72,7 @@ runs:
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
       run: |
         # Copy all root files to backup directory
-        cp -r ${{ inputs.directory }}/* ../backup
+        cp -r ${{ inputs.directory }} ../backup
         # Download latest version of HydePHP
         git clone https://github.com/hydephp/hyde.git ../hyde --depth 1
         # Copy HydePHP files to root
