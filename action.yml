@@ -21,7 +21,7 @@ runs:
       shell: bash
 
     - name: Discover packages
-      run: composer run-script post-autoload-dump --quiet
+      run: composer dump-autoload --quiet
       shell: bash
 
     - name: Build the site
