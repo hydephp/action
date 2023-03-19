@@ -20,6 +20,10 @@ runs:
       run: composer install --prefer-dist --no-progress --no-scripts --no-dev
       shell: bash
 
+    - name: Discover packages
+      run: php hyde package:discover --quiet
+      shell: bash
+
     - name: Build the site
       run: php hyde build
       shell: bash
