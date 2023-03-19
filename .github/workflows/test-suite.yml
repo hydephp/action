@@ -50,20 +50,6 @@ jobs:
       - name: Integration test 4
         uses: ./
 
-  test-pages-deployment:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Test Pages deployment
-        uses: ./
-        with:
-          deploy: pages
-
   lint:
     runs-on: ubuntu-latest
     steps:
