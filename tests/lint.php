@@ -23,5 +23,24 @@ function write(string $line, string $color = null): void
 
 function lint(string $file): void
 {
-    //
+    $contents = file_get_contents($file);
+    $filename = basename($file);
+
+    if (false === $contents) {
+        throw new RuntimeException("Could not read file: $filename");
+    }
+
+    if (empty(trim($contents))) {
+        throw new RuntimeException("File is empty: $filename");
+    }
+
+    foreach (explode(PHP_EOL, $contents) as $line) {
+        if (str_contains($line, "\t")) {
+            throw new RuntimeException("File contains tabs: $filename");
+        }
+
+        if ($line !== rtrim($line)) {
+            throw new RuntimeException("File contains trailing whitespace: $filename");
+        }
+    }
 }
