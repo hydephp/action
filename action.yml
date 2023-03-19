@@ -8,6 +8,7 @@ inputs:
     default: "false"
 
   deploy:
+    # Pages option requires GitHub the "Build and deployment" source to be set to "GitHub Actions"
     description: 'Specify what to do with the compiled site. Options are: [artifact, pages]'
     required: true
     default: "artifact"
