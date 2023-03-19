@@ -1,5 +1,9 @@
 name: 'Build HydePHP Site'
 description: 'Build and deploy the HydePHP project'
+outputs:
+  install-strategy:
+    description: 'The install strategy used'
+    value: ${{ steps.install-strategy.outputs.install-strategy }}
 runs:
   using: "composite"
   steps:
