@@ -7,8 +7,10 @@ runs:
       run: composer validate --strict
       shell: bash
 
-    - run: composer install
+    - name: Install dependencies
+      run: composer install
       shell: bash
 
-    - run: php hyde build
+    - name: Build the site
+      run: php hyde build
       shell: bash
