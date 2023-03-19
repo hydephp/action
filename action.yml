@@ -87,7 +87,7 @@ runs:
       if: inputs.deploy == 'artifact'
       uses: actions/upload-artifact@v3
       with:
-          name: site
+          name: build
           path: _site
 
     # Now that the site is built, there are a few options for deployment.
