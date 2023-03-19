@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-write('Running Yaml Linter!', '33');
+write('Running Yaml Linter!', '32');
 
 $files = glob(__DIR__ . '/../.github/workflows/*.yml');
 $exitCode = 0;
 
 foreach ($files as $file) {
-    write('  Linting file '.basename($file), '32');
+    write('  Linting file '.basename($file), '33');
 
     try {
         lint($file);
