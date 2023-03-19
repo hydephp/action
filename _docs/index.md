@@ -1,10 +1,8 @@
-Build HydePHP Site GitHub Action
-================================
+# Build HydePHP Site GitHub Action
 
 This GitHub Action builds and deploys the HydePHP project. It has the following inputs and outputs:
 
-Inputs
-------
+## Inputs
 
 ### `debug`
 
@@ -30,8 +28,7 @@ Uploads the compiled site as an artifact.
 *   **Required**: `false`
 *   **Default**: `"false"`
 
-Outputs
--------
+## Outputs
 
 ### `install-strategy`
 
@@ -40,8 +37,7 @@ The install strategy used.
 *   **Description**: The install strategy used.
 *   **Value**: `${{ steps.determine-install-strategy.outputs.install-strategy }}`
 
-Steps
------
+## Steps
 
 1.  `Validate input`: Validates the input.
     
