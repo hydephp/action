@@ -51,7 +51,6 @@ function lint(string $file): void
     }
 }
 
-write('');
-write('Linting complete!', '32');
+write("\nLinting complete!", '32');
 
 exit($exitCode);
