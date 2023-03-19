@@ -1,2 +1,4 @@
+source_directories:
+  Hyde\Pages\DocumentationPage: 'docs'
 output_directories:
   Hyde\Pages\DocumentationPage: ''
