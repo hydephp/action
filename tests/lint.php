@@ -8,12 +8,12 @@ $files = glob(__DIR__ . '/../.github/workflows/*.yml');
 $exitCode = 0;
 
 foreach ($files as $file) {
-    write('Linting file '.basename($file), '32');
+    write('  Linting file '.basename($file), '32');
 
     try {
         lint($file);
     } catch (RuntimeException $exception) {
-        write($exception->getMessage(), '31');
+        write('    '.$exception->getMessage(), '31');
         $exitCode = 1;
     }
 }
