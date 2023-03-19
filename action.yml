@@ -15,7 +15,7 @@ inputs:
   upload-artifact:
     description: 'Upload the compiled site as an artifact'
     required: false
-    default: "true"
+    default: "false"
 
 outputs:
   install-strategy:
