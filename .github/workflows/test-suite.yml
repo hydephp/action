@@ -1,15 +1,17 @@
-on: 
+on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
-  
+    branches:
+      - master
+
 jobs:
   integration-test-1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Integration test 1
         uses: ./
 
@@ -17,18 +19,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
-    
+
       - name: Integration test 2
         uses: ./
         with:
-         debug: true
-    
+          debug: true
+
   integration-test-3:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-    
+
       - name: Integration test 3
         uses: ./
         with:
