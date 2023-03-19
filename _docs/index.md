@@ -40,22 +40,22 @@ The install strategy used.
 ## Steps
 
 1.  `Validate input`: Validates the input.
-    
+
 2.  `Determine install strategy`: Determines the install strategy.
-    
+
 3.  `Print debug information`: Prints debug information.
-    
+
 4.  `Validate composer.json and composer.lock`: Validates composer.json and composer.lock.
-    
+
 5.  `Cache Composer packages`: Caches Composer packages.
-    
+
 6.  `Download latest release`: Downloads the latest release of HydePHP.
-    
+
 7.  `Install dependencies`: Installs dependencies.
-    
+
 8.  `Build the site`: Builds the site.
-    
+
 9.  `Upload artifact`: Uploads the artifact.
-    
+
 
 After the site is built, there are several options for deployment. The site can be pushed directly to the gh-pages branch, files can be committed to /docs, the GitHub Pages action can be used to deploy the compiled site, or the site can be uploaded as an artifact for later use.
