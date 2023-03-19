@@ -51,4 +51,6 @@ function lint(string $file): void
     }
 }
 
+write('Linting complete!', '32');
+
 exit($exitCode);
