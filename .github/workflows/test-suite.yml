@@ -12,10 +12,10 @@ jobs:
         test:
           - name: "Integration test 1"
             debug: false
-            deploy: none
+            deploy: ''
           - name: "Integration test 2"
             debug: true
-            deploy: none
+            deploy: ''
           - name: "Integration test 3"
             debug: true
             deploy: artifact
