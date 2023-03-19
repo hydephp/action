@@ -20,6 +20,15 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Validate input
+      id: validate-input
+      run: |
+        if [[ "${{ inputs.deploy }}" != "artifact" ]]; then
+          echo "Invalid input for deploy: ${{ inputs.deploy }}"
+          exit 1
+        fi
+      shell: bash
+
     - name: Determine install strategy
       id: determine-install-strategy
       run: |
