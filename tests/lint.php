@@ -10,7 +10,12 @@ $exitCode = 0;
 foreach ($files as $file) {
     write('Linting file '.basename($file), '32');
 
-    lint($file);
+    try {
+        lint($file);
+    } catch (RuntimeException $e) {
+        write($e->getMessage(), '31');
+        $exitCode = 1;
+    }
 }
 
 function write(string $line, string $color = null): void
