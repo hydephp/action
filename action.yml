@@ -11,9 +11,9 @@ runs:
       id: determine-install-strategy
       run: |
         if [[ -f composer.json ]]; then
-          echo "name=install-strategy::composer" >> $GITHUB_OUTPUT
+          echo "install-strategy=composer" >> $GITHUB_OUTPUT
         else
-          echo "name=install-strategy::archive" >> $GITHUB_OUTPUT
+          echo "install-strategy=archive" >> $GITHUB_OUTPUT
         fi
       shell: bash
 
