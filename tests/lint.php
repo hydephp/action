@@ -11,6 +11,11 @@ function write(string $line, string $color = null): void
     echo $line . PHP_EOL;
 }
 
+function lint(string $file): void
+{
+    //
+}
+
 write('Running Yaml Linter!', '33');
 
 $files = glob(__DIR__ . '/../.github/workflows/*.yml');
@@ -18,4 +23,7 @@ $files = glob(__DIR__ . '/../.github/workflows/*.yml');
 foreach ($files as $file) {
     $filename = basename($file);
     write("Linting file $filename", '32');
+
+
+    lint($file);
 }
