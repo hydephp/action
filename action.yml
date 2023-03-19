@@ -42,7 +42,6 @@ runs:
       shell: bash
 
     - name: Install dependencies
-      if: steps.install-strategy.outputs.install-strategy == 'composer'
       run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
       shell: bash
 
