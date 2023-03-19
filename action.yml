@@ -12,6 +12,11 @@ inputs:
     required: true
     default: "artifact"
 
+  upload-artifact:
+    description: 'Upload the compiled site as an artifact'
+    required: false
+    default: "true"
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
@@ -86,7 +91,7 @@ runs:
       shell: bash
 
     - name: Upload artifact
-      if: inputs.deploy == 'artifact'
+      if: inputs.deploy == 'artifact' || inputs.upload-artifact == 'true'
       uses: actions/upload-artifact@v3
       with:
         name: build
