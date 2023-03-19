@@ -17,11 +17,7 @@ runs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-autoloader --no-dev
-      shell: bash
-
-    - name: Discover packages
-      run: composer dump-autoload --quiet
+      run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
       shell: bash
 
     - name: Build the site
