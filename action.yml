@@ -84,11 +84,11 @@ runs:
       shell: bash
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
+      run: cd ${{ inputs.directory }} && composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
       shell: bash
 
     - name: Build the site
-      run: php hyde build --no-interaction --ansi
+      run: cd ${{ inputs.directory }} && php hyde build --no-interaction --ansi
       shell: bash
 
     - name: Upload artifact
