@@ -23,6 +23,7 @@ runs:
       shell: bash
 
     - name: Print install strategy
+      if: ${{ inputs.debug }}
       run: 'echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"'
       shell: bash
 
