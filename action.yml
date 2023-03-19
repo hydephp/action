@@ -14,11 +14,13 @@ runs:
       shell: bash
 
     - name: Validate composer.json and composer.lock
+      if: steps.install-strategy.outputs.install-strategy == 'composer'
       run: composer validate --strict
       shell: bash
 
     - name: Cache Composer packages
       id: composer-cache
+      if: steps.install-strategy.outputs.install-strategy == 'composer'
       uses: actions/cache@v3
       with:
         path: vendor
@@ -27,6 +29,7 @@ runs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
+      if: steps.install-strategy.outputs.install-strategy == 'composer'
       run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
       shell: bash
 
