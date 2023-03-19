@@ -2,6 +2,18 @@
 
 declare(strict_types=1);
 
+write('Running Yaml Linter!', '33');
+
+$files = glob(__DIR__ . '/../.github/workflows/*.yml');
+
+foreach ($files as $file) {
+    $filename = basename($file);
+    write("Linting file $filename", '32');
+
+
+    lint($file);
+}
+
 function write(string $line, string $color = null): void
 {
     if ($color) {
@@ -14,16 +26,4 @@ function write(string $line, string $color = null): void
 function lint(string $file): void
 {
     //
-}
-
-write('Running Yaml Linter!', '33');
-
-$files = glob(__DIR__ . '/../.github/workflows/*.yml');
-
-foreach ($files as $file) {
-    $filename = basename($file);
-    write("Linting file $filename", '32');
-
-
-    lint($file);
 }
