@@ -67,3 +67,8 @@ runs:
     - name: Build the site
       run: php hyde build --no-interaction --ansi
       shell: bash
+
+    # Now that the site is built, there are a few options for deployment.
+    # We could push directly to the gh-pages branch, commit files to /docs,
+    # or even use the GitHub Pages action to deploy the compiled site.
+    # We could also upload the site as an artifact for later use.
