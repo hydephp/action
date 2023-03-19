@@ -17,5 +17,5 @@ $files = glob(__DIR__ . '/../.github/workflows/*.yml');
 
 foreach ($files as $file) {
     $filename = basename($file);
-    write("Linting $filename", '32');
+    write("Linting file $filename", '32');
 }
