@@ -83,6 +83,13 @@ runs:
       run: php hyde build --no-interaction --ansi
       shell: bash
 
+    - name: Upload artifact
+      if: inputs.deploy == 'artifact'
+      uses: actions/upload-artifact@v3
+      with:
+          name: site
+          path: _site
+
     # Now that the site is built, there are a few options for deployment.
     # We could push directly to the gh-pages branch, commit files to /docs,
     # or even use the GitHub Pages action to deploy the compiled site.
