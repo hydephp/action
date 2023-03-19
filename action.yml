@@ -8,7 +8,9 @@ inputs:
     default: "false"
 
   deploy:
-    description: 'Specify what to do with the compiled site. Options are: [artifact]'
+    # Pages option requires GitHub the "Build and deployment" source to be set to "GitHub Actions"
+    # You must also ensure that GITHUB_TOKEN has permission "id-token: write".
+    description: 'Specify what to do with the compiled site. Options are: [artifact, pages]'
     required: true
     default: "artifact"
 
@@ -28,7 +30,7 @@ runs:
     - name: Validate input
       id: validate-input
       run: |
-        if [[ "${{ inputs.deploy }}" != "artifact" ]]; then
+        if [[ "${{ inputs.deploy }}" != "artifact" ]] && [[ "${{ inputs.deploy }}" != "pages" ]]; then
           echo "Invalid input for deploy: ${{ inputs.deploy }}"
           exit 1
         fi
@@ -96,6 +98,21 @@ runs:
       with:
         name: build
         path: _site # TODO: Get this from the config file in case it's customized
+
+    - name: Setup Pages
+      if: inputs.deploy == 'pages'
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact
+      if: inputs.deploy == 'pages'
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: _site # TODO: Get this from the config file in case it's customized
+
+    - name: Deploy to GitHub Pages
+      id: pages-deployment
+      if: inputs.deploy == 'pages'
+      uses: actions/deploy-pages@v1
 
     # Now that the site is built, there are a few options for deployment.
     # We could push directly to the gh-pages branch, commit files to /docs,
