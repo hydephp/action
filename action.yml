@@ -9,6 +9,7 @@ inputs:
 
   deploy:
     # Pages option requires GitHub the "Build and deployment" source to be set to "GitHub Actions"
+    # You must also ensure that GITHUB_TOKEN has permission "id-token: write".
     description: 'Specify what to do with the compiled site. Options are: [artifact, pages]'
     required: true
     default: "artifact"
