@@ -5,6 +5,7 @@ declare(strict_types=1);
 write('Running Yaml Linter!', '33');
 
 $files = glob(__DIR__ . '/../.github/workflows/*.yml');
+$exitCode = 0;
 
 foreach ($files as $file) {
     write('Linting file '.basename($file), '32');
