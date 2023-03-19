@@ -6,6 +6,11 @@ inputs:
     description: 'Enable debug mode'
     required: false
     default: "false"
+  
+  deploy:
+    description: 'Specify what to do with the compiled site. Options are: [artifact]'
+    required: true
+    default: "artifact"
 
 outputs:
   install-strategy:
