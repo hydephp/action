@@ -10,7 +10,6 @@ foreach ($files as $file) {
     $filename = basename($file);
     write("Linting file $filename", '32');
 
-
     lint($file);
 }
 
