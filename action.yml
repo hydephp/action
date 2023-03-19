@@ -3,6 +3,16 @@ description: 'Build and deploy the HydePHP project'
 runs:
   using: "composite"
   steps:
+    - name: Determine install strategy
+      id: install-strategy
+      run: |
+        if [[ -f composer.json ]]; then
+          echo "::set-output name=install-strategy::composer"
+        else
+          echo "::set-output name=install-strategy::archive"
+        fi
+      shell: bash
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
       shell: bash
