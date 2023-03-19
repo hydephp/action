@@ -1,3 +1,4 @@
+name: HydePHP GitHub Action
 source_directories:
   Hyde\Pages\DocumentationPage: 'docs'
 output_directories:
