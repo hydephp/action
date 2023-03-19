@@ -45,3 +45,5 @@ function lint(string $file): void
         }
     }
 }
+
+exit($exitCode);
