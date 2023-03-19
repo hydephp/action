@@ -12,8 +12,8 @@ foreach ($files as $file) {
 
     try {
         lint($file);
-    } catch (RuntimeException $e) {
-        write($e->getMessage(), '31');
+    } catch (RuntimeException $exception) {
+        write($exception->getMessage(), '31');
         $exitCode = 1;
     }
 }
