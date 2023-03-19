@@ -16,5 +16,6 @@ write('Running Yaml Linter!', '33');
 $files = glob(__DIR__ . '/../.github/workflows/*.yml');
 
 foreach ($files as $file) {
-    write("Linting $file", '32');
+    $filename = basename($file);
+    write("Linting $filename", '32');
 }
