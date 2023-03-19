@@ -12,3 +12,5 @@ function write(string $line, string $color = null): void
 }
 
 write('Running Yaml Linter!', '33');
+
+$files = glob(__DIR__ . '/../.github/workflows/*.yml');
