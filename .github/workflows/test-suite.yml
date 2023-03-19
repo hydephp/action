@@ -3,34 +3,30 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-  
-jobs:
-  integration-test-1:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Integration test 1
-        uses: ./
 
-  integration-test-2:
+jobs:
+  integration-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test:
+          - name: "Integration test 1"
+            debug: false
+            deploy: none
+          - name: "Integration test 2"
+            debug: true
+            deploy: none
+          - name: "Integration test 3"
+            debug: true
+            deploy: artifact
     steps:
       - uses: actions/checkout@v3
-      
-    
-      - name: Integration test 2
+
+      - name: Run integration test
         uses: ./
         with:
-         debug: true
-    
-  integration-test-3:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-    
-      - name: Integration test 3
-        uses: ./
-        with:
-          debug: true
-          deploy: artifact
+          debug: ${{ matrix.test.debug }}
+          deploy: ${{ matrix.test.deploy }}
+          # Use the name from the matrix as the test name in the output
+          # This allows for easy identification of which test has failed
+          name: ${{ matrix.test.name }}
