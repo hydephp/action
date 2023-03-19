@@ -6,12 +6,7 @@ inputs:
     description: 'Enable debug mode'
     required: false
     default: "false"
-
-  directory:
-    description: 'The base directory of the project (where the composer.json file is located)'
-    required: false
-    default: "."
-
+  
   deploy:
     description: 'Specify what to do with the compiled site. Options are: [artifact]'
     required: true
@@ -49,7 +44,6 @@ runs:
       run: |
         echo "Debug mode: ${{ inputs.debug }}"
         echo "Deploy option: ${{ inputs.deploy }}"
-        echo "Project directory: ${{ inputs.directory }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
       shell: bash
 
@@ -72,23 +66,23 @@ runs:
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
       run: |
         # Copy all root files to backup directory
-        cp -r ${{ inputs.directory }} ../backup
+        cp -r . ../backup
         # Download latest version of HydePHP
         git clone https://github.com/hydephp/hyde.git ../hyde --depth 1
         # Copy HydePHP files to root
-        cp -r ../hyde/* ${{ inputs.directory }}
+        cp -r ../hyde/* .
         # Remove default pages
         rm _pages/index.blade.php _pages/404.blade.php
         # Copy Backup files to root
-        cp -r ../backup/* ${{ inputs.directory }}
+        cp -r ../backup/* .
       shell: bash
 
     - name: Install dependencies
-      run: cd ${{ inputs.directory }} && composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
+      run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
       shell: bash
 
     - name: Build the site
-      run: cd ${{ inputs.directory }} && php hyde build --no-interaction --ansi
+      run: php hyde build --no-interaction --ansi
       shell: bash
 
     - name: Upload artifact
@@ -96,7 +90,7 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: build
-        path: ${{ inputs.directory }}/_site # TODO: Get this from the config file in case it's customized
+        path: _site # TODO: Get this from the config file in case it's customized
 
     # Now that the site is built, there are a few options for deployment.
     # We could push directly to the gh-pages branch, commit files to /docs,
