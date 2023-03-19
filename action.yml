@@ -8,7 +8,7 @@ inputs:
     default: "false"
 
   deploy:
-    description: 'Specify what to do with the compiled site. Options are: [artifact]'
+    description: 'Specify what to do with the compiled site. Options are: [artifact, pages]'
     required: true
     default: "artifact"
 
