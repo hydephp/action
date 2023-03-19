@@ -21,7 +21,7 @@ runs:
       shell: bash
 
     - name: Discover packages
-      run: php hyde package:discover --quiet
+      run: composer run-script post-autoload-dump --quiet
       shell: bash
 
     - name: Build the site
