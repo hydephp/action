@@ -34,3 +34,16 @@ jobs:
         uses: ./
         with:
           deploy: artifact
+
+  integration-test-4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup project
+        run: |
+          composer create-project hyde/hyde --no-interaction --no-progress --no-dev
+          cp -r hyde/* .
+
+      - name: Integration test 4
+        uses: ./
