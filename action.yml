@@ -7,8 +7,8 @@ inputs:
     required: false
     default: "false"
 
-  source:
-    description: 'The source directory for the site'
+  directory:
+    description: 'The base directory of the project (where the composer.json file is located)'
     required: false
     default: "."
 
@@ -49,7 +49,7 @@ runs:
       run: |
         echo "Debug mode: ${{ inputs.debug }}"
         echo "Deploy option: ${{ inputs.deploy }}"
-        echo "Source directory: ${{ inputs.source }}"
+        echo "Project directory: ${{ inputs.directory }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
       shell: bash
 
