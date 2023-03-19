@@ -22,11 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run integration test
+      - name: Run integration test ${{ matrix.test.name }}
         uses: ./
         with:
           debug: ${{ matrix.test.debug }}
           deploy: ${{ matrix.test.deploy }}
-          # Use the name from the matrix as the test name in the output
-          # This allows for easy identification of which test has failed
-          name: ${{ matrix.test.name }}
