@@ -42,8 +42,8 @@ jobs:
 
       - name: Setup project
         run: |
-          composer create-project hyde/hyde --no-interaction --no-progress --no-dev
-          cp -r hyde/* .
+          composer create-project hyde/hyde --no-interaction --no-progress --no-dev /tmp/hyde
+          cp -r /tmp/hyde/* .
 
       - name: Integration test 4
         uses: ./
