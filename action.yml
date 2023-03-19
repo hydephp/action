@@ -11,7 +11,11 @@ runs:
         else
           echo "name=install-strategy::archive" >> $GITHUB_OUTPUT
         fi
-        echo Using ${{ steps.install-strategy.outputs.install-strategy }} install strategy
+      shell: bash
+
+    - name: Print install strategy
+      run: |
+         echo "Install strategy: ${{ steps.install-strategy.outputs.install-strategy }}"
       shell: bash
 
     - name: Validate composer.json and composer.lock
