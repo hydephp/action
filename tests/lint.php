@@ -10,3 +10,5 @@ function write(string $line, string $color = null): void
 
     echo $line . PHP_EOL;
 }
+
+write('Running Yaml Linter!', '33');
