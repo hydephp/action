@@ -17,7 +17,7 @@ runs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      run: composer install --prefer-dist --no-progress --no-dev
       shell: bash
 
     - name: Build the site
