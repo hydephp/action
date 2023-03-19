@@ -28,6 +28,19 @@ runs:
         restore-keys: |
           ${{ runner.os }}-php-
 
+    - name: Download latest release
+      if: steps.install-strategy.outputs.install-strategy == 'archive'
+      run: |
+        # Copy all root files to backup directory
+        cp -r . ../backup
+        # Download latest version of HydePHP
+        git clone https://github.com/hydephp/hyde.git ../hyde --depth 1
+        # Copy HydePHP files to root
+        cp -r ../hyde/* .
+        # Copy Backup files to root
+        cp -r ../backup/* .
+      shell: bash
+
     - name: Install dependencies
       if: steps.install-strategy.outputs.install-strategy == 'composer'
       run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
