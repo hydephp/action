@@ -1,14 +1,17 @@
 name: 'Build HydePHP Site'
 description: 'Build and deploy the HydePHP project'
+
 inputs:
   debug:
     description: 'Enable debug mode'
     required: false
     default: "false"
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
     value: ${{ steps.determine-install-strategy.outputs.install-strategy }}
+
 runs:
   using: "composite"
   steps:
