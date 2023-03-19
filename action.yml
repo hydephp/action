@@ -7,9 +7,9 @@ runs:
       id: install-strategy
       run: |
         if [[ -f composer.json ]]; then
-          echo "::set-output name=install-strategy::composer"
+          echo "name=install-strategy::composer" >> $GITHUB_OUTPUT
         else
-          echo "::set-output name=install-strategy::archive"
+          echo "name=install-strategy::archive" >> $GITHUB_OUTPUT
         fi
       shell: bash
 
