@@ -3,12 +3,12 @@ description: 'Build and deploy the HydePHP project'
 outputs:
   install-strategy:
     description: 'The install strategy used'
-    value: ${{ steps.install-strategy.outputs.install-strategy }}
+    value: ${{ steps.determine-install-strategy.outputs.install-strategy }}
 runs:
   using: "composite"
   steps:
     - name: Determine install strategy
-      id: install-strategy
+      id: determine-install-strategy
       run: |
         if [[ -f composer.json ]]; then
           echo "name=install-strategy::composer" >> $GITHUB_OUTPUT
@@ -19,17 +19,17 @@ runs:
 
     - name: Print install strategy
       run: |
-         echo "Install strategy: ${{ steps.install-strategy.outputs.install-strategy }}"
+         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
       shell: bash
 
     - name: Validate composer.json and composer.lock
-      if: steps.install-strategy.outputs.install-strategy == 'composer'
+      if: steps.determine-install-strategy.outputs.install-strategy == 'composer'
       run: composer validate --strict
       shell: bash
 
     - name: Cache Composer packages
       id: composer-cache
-      if: steps.install-strategy.outputs.install-strategy == 'composer'
+      if: steps.determine-install-strategy.outputs.install-strategy == 'composer'
       uses: actions/cache@v3
       with:
         path: vendor
@@ -38,7 +38,7 @@ runs:
           ${{ runner.os }}-php-
 
     - name: Download latest release
-      if: steps.install-strategy.outputs.install-strategy == 'archive'
+      if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
       run: |
         # Copy all root files to backup directory
         cp -r . ../backup
