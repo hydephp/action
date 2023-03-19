@@ -12,3 +12,8 @@ jobs:
       
       - name: Integration test 1
         uses: ./
+
+      - name: Integration test 2
+        uses: ./
+        with:
+          debug: true
