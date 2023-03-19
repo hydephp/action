@@ -43,6 +43,7 @@ runs:
       if: inputs.debug == 'true'
       run: |
         echo "Debug mode: ${{ inputs.debug }}"
+        echo "Deploy option: ${{ inputs.deploy }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
       shell: bash
 
