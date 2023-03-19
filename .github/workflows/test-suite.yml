@@ -3,26 +3,34 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+  
 jobs:
-  integration-tests:
+  integration-test-1:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        test:
-          - name: "Integration test 1"
-            debug: false
-          - name: "Integration test 2"
-            debug: true
-          - name: "Integration test 3"
-            debug: true
-            deploy: artifact
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Integration test 1
+        uses: ./
 
-      - name: Run integration test ${{ matrix.test.name }}
+  integration-test-2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+    
+      - name: Integration test 2
         uses: ./
         with:
-          debug: ${{ matrix.test.debug }}
-          deploy: ${{ matrix.test.deploy }}
+         debug: true
+    
+  integration-test-3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+    
+      - name: Integration test 3
+        uses: ./
+        with:
+          debug: true
+          deploy: artifact
