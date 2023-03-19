@@ -17,3 +17,9 @@ jobs:
         uses: ./
         with:
           debug: true
+
+      - name: Integration test 3
+        uses: ./
+        with:
+          debug: true
+          deploy: artifact
