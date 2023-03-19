@@ -23,7 +23,7 @@ runs:
       shell: bash
 
     - name: Print debug information
-      if: "${{ inputs.debug }} == 'true'"
+      if: ${{ inputs.debug }} == 'true'
       run: |
         echo "Debug mode: ${{ inputs.debug }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
