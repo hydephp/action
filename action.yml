@@ -96,7 +96,7 @@ runs:
       uses: actions/upload-artifact@v3
       with:
         name: build
-        path: _site # TODO: Get this from the config file in case it's customized
+        path: ${{ inputs.directory }}/_site # TODO: Get this from the config file in case it's customized
 
     # Now that the site is built, there are a few options for deployment.
     # We could push directly to the gh-pages branch, commit files to /docs,
