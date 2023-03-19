@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 write('Running Yaml Linter!', '33');
 
+$errors = [];
+
 $files = glob(__DIR__ . '/../.github/workflows/*.yml');
 
 foreach ($files as $file) {
