@@ -67,6 +67,9 @@ jobs:
         test-1:
           - name: "Full HydePHP project"
             id: "github-action-test-project-1"
+        test-2:
+          - name: "Anonymous HydePHP Project"
+            id: "github-action-test-project-2"
     environment:
       name: "Integration test: ${{ matrix.test.name }}"
       url: "https://github.com/hyde-staging/${{ matrix.test.id }}/actions"
