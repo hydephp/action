@@ -98,7 +98,7 @@ jobs:
             \"ref\": \"${{ github.ref }}\", \
             \"sha\": \"${{ github.sha }}\", \
             \"url\": \"${{ steps.client-payload-reference.outputs.client_payload-url }}\", \
-            \"reference\": \"${{ steps.client-payload-reference.outputs.client_payload-reference }}\" \
+            \"reference\": \"${{ steps.client-payload-reference.outputs.client_payload-url }}\" \
           }" >> $GITHUB_OUTPUT
 
       - name: Dispatch integration test ${{ matrix.test.id }}
