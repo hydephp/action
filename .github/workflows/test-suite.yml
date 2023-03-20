@@ -67,7 +67,6 @@ jobs:
         test:
           - name: "Full HydePHP project"
             id: "github-action-test-project-1"
-        test-2:
           - name: "Anonymous HydePHP Project"
             id: "github-action-test-project-2"
     environment:
