@@ -9,6 +9,14 @@ on:
       - master
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run linter
+        run: php tests/lint.php
+
   run-test-1:
     runs-on: ubuntu-latest
     steps:
@@ -49,11 +57,3 @@ jobs:
 
       - name: Run test 4
         uses: ./
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Run linter
-        run: php tests/lint.php
