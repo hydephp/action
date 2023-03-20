@@ -3,3 +3,4 @@ source_directories:
   Hyde\Pages\DocumentationPage: 'docs'
 output_directories:
   Hyde\Pages\DocumentationPage: ''
+load_app_styles_from_cdn: true
