@@ -79,4 +79,4 @@ jobs:
           token: ${{ secrets.HYDE_STAGING_DISPATCH_TOKEN }}
           repository: hyde-staging/${{ matrix.test.id }}
           event-type: integration-test
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "url": "${{ github.event.repository.html_url }}"}'
