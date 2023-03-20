@@ -6,28 +6,21 @@ $exitCode = 0;
 function verify(bool $result): void
 {
     global $contents;
+    global $exitCode;
 
-    // get line calling this function
-    $trace = debug_backtrace();
-    $line = $trace[0]['line'];
-    // extract test name from line
-    $testName = trim($contents[$line - 1]);
-    // get string between first and second quote
-    // $testName = preg_replace('/^.*?\'(.*?)\'.*?$/', '$1', $testName) ?? $testName;
-    // get string inside verify( and last );
-    $testName = substr($testName, 7, strpos($testName, ');') - 7);
+    $line = trim($contents[debug_backtrace()[0]['line'] - 1]);
+    $testName = substr($line, 7, strpos($line, ');') - 7);
 
     if ($result) {
-        echo 'passed: ';
+        echo 'passed';
     } else {
-        echo 'failed: ';
-        global $exitCode;
+        echo 'failed';
         $exitCode = 1;
     }
-    echo $testName . PHP_EOL;
+    echo ": $testName\n";
 }
-verify(is_dir('build'));
 
+verify(is_dir('build'));
 verify(is_file('build/index.html'));
 verify(is_file('build/404.html'));
 verify(is_file('build/sitemap.xml'));
