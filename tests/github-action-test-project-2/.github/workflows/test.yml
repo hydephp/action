@@ -11,12 +11,17 @@ jobs:
     environment:
       name: "Integration test for ${{ github.event.client_payload.reference }}"
       url: ${{ github.event.client_payload.url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       - uses: hydephp/action@master
         with:
           debug: true
           upload-artifact: true
+          deploy: "pages"
 
       - uses: actions/download-artifact@v3
         with:

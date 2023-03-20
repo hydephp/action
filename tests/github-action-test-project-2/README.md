@@ -6,4 +6,4 @@ Part of the integration test suite for https://github.com/hydephp/action.
 
 This project is responsible for testing the following:
 - Testing an anonymous HydePHP project installation
-- Testing the artifact upload deployment
+- Testing the Pages deployment option
