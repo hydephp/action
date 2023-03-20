@@ -1,6 +1,6 @@
 <?php
 
-echo (assert(is_dir('build')) ? 'passed' : 'failed') . "\n";
+echo (assert(is_dir('debug')) ? 'passed' : 'failed') . "\n";
 echo (assert(is_file('build/index.html')) ? 'passed' : 'failed') . "\n";
 echo (assert(is_file('build/404.html')) ? 'passed' : 'failed') . "\n";
 echo (assert(is_file('build/sitemap.xml')) ? 'passed' : 'failed') . "\n";
