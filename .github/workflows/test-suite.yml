@@ -67,6 +67,9 @@ jobs:
         test:
           - name: "Full HydePHP project"
             id: "github-action-test-project-1"
+    environment:
+      name: "Integration test: ${{ matrix.test.name }}"
+      url: "https://github.com/hyde-staging/${{ matrix.test.id }}/actions"
     steps:
       - uses: actions/checkout@v3
 
