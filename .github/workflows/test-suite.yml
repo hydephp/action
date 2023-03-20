@@ -89,7 +89,7 @@ jobs:
           echo "client_payload={ \
             \"ref\": \"${{ github.ref }}\", \
             \"sha\": \"${{ github.sha }}\", \
-            \"url\": \"${{ github.event.repository.html_url }}/commit/${{ github.sha }}\" \
+            \"url\": \"${{ github.event.repository.html_url }}/commit/${{ github.sha }}\", \
             \"reference\": \"${{ steps.client-payload-reference.outputs.client_payload-reference }}\" \
           }" >> $GITHUB_OUTPUT
 
