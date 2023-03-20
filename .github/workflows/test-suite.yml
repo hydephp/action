@@ -58,6 +58,7 @@ jobs:
       - name: Run test 4
         uses: ./
 
+  # TODO: Move to continuous-integration.yml as it should only be run on push to master
   integration-tests:
     runs-on: ubuntu-latest
     name: "Integration test: ${{ matrix.test.name }}"
