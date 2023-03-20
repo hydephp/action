@@ -76,7 +76,7 @@ jobs:
           echo "client_payload={ \
           \"ref\": \"${{ github.ref }}\", \
           \"sha\": \"${{ github.sha }}\", \
-          \"url\": \"${{ github.event.repository.html_url }}/tree/${{ github.sha }}\" \
+          \"url\": \"${{ github.event.repository.html_url }}/commit/${{ github.sha }}\" \
           }" >> $GITHUB_OUTPUT
 
       - name: Dispatch integration test ${{ matrix.test.id }}
