@@ -30,15 +30,6 @@ Uploads the compiled site as an artifact.
 *   **Required**: `false`
 *   **Default**: `"false"`
 
-## Outputs
-
-### `install-strategy`
-
-The install strategy used.
-
-*   **Description**: The install strategy used.
-*   **Value**: `${{ steps.determine-install-strategy.outputs.install-strategy }}`
-
 ## Steps
 
 1.  `Validate input`: Validates the input.
