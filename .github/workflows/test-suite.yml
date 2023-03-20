@@ -79,6 +79,8 @@ jobs:
           else
               REFERENCE="${GITHUB_REF##*/}@${GITHUB_SHA::8}"
           fi
+          # Escape the reference string for use in the JSON payload
+          REFERENCE=$(echo $REFERENCE | sed -e 's/"/\\"/g' -e "s/'/\\'/g")
           echo "client_payload-reference=$REFERENCE" >> $GITHUB_OUTPUT
 
       - name: Prepare client payload
