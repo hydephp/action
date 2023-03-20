@@ -65,7 +65,7 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - name: "Integration test 1"
+          - name: "Full HydePHP project"
             id: "github-action-test-project-1"
           # - name: "Integration test 2"
           # - name: "Integration test 3"
