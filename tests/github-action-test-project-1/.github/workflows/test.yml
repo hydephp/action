@@ -1,4 +1,4 @@
-name: Integration Tests
+name: Integration Test 1
 
 on:
   repository_dispatch:
