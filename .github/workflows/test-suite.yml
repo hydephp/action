@@ -74,8 +74,12 @@ jobs:
 
       - name: Prepare client payload
         id: client-payload
-        run: |
-          echo 'client_payload={"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "url": "${{ github.event.repository.html_url }}"}' >> $GITHUB_OUTPUT
+        run: >
+          echo "client_payload={ \
+             \"ref\": \"${{ github.ref }}\", \
+             \"sha\": \"${{ github.sha }}\", \
+             \"url\": \"${{ github.event.repository.html_url }}\" \
+          }" >> $GITHUB_OUTPUT
 
       - name: Dispatch integration test ${{ matrix.test.id }}
         # Trigger workflow named test.yml in https://github.com/hyde-staging/${{ matrix.test.id }}
