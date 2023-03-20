@@ -57,3 +57,18 @@ jobs:
 
       - name: Run test 4
         uses: ./
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test:
+          - name: "Integration test 1"
+          - name: "Integration test 2"
+          - name: "Integration test 3"
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run integration test ${{ matrix.test.name }}
+        uses: ./
