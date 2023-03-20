@@ -17,35 +17,35 @@ jobs:
       - name: Run linter
         run: php tests/lint.php
 
-  run-test-1:
+  run-workflow-test-1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run test 1
+      - name: Run workflow test 1
         uses: ./
 
-  run-test-2:
+  run-workflow-test-2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run test 2
+      - name: Run workflow test 2
         uses: ./
         with:
           debug: true
 
-  run-test-3:
+  run-workflow-test-3:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run test 3
+      - name: Run workflow test 3
         uses: ./
         with:
           deploy: artifact
 
-  run-test-4:
+  run-workflow-test-4:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -55,7 +55,7 @@ jobs:
           composer create-project hyde/hyde --no-interaction --no-progress --no-dev /tmp/hyde
           cp -r /tmp/hyde/* .
 
-      - name: Run test 4
+      - name: Run workflow test 4
         uses: ./
 
   # TODO: Move to continuous-integration.yml as it should only be run on push to master
