@@ -65,6 +65,7 @@ jobs:
       matrix:
         test:
           - name: "Integration test 1"
+              # foo: "bar"
           - name: "Integration test 2"
           - name: "Integration test 3"
     steps:
@@ -72,3 +73,5 @@ jobs:
 
       - name: Run integration test ${{ matrix.test.name }}
         uses: ./
+        # with:
+        #  foo: ${{ matrix.test.foo }}
