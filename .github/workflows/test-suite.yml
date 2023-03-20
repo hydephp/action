@@ -79,6 +79,7 @@ jobs:
           else
               REFERENCE="${GITHUB_REF##*/}@${GITHUB_SHA::8}"
           fi
+          echo "client_payload-reference=$REFERENCE" >> $GITHUB_OUTPUT
 
       - name: Prepare client payload
         id: client-payload
@@ -87,7 +88,7 @@ jobs:
             \"ref\": \"${{ github.ref }}\", \
             \"sha\": \"${{ github.sha }}\", \
             \"url\": \"${{ github.event.repository.html_url }}/commit/${{ github.sha }}\" \
-            \"reference\": \"${{ steps.client-payload-reference.outputs.REFERENCE }}\" \
+            \"reference\": \"${{ steps.client-payload-reference.outputs.client_payload-reference }}\" \
           }" >> $GITHUB_OUTPUT
 
       - name: Dispatch integration test ${{ matrix.test.id }}
