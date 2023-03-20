@@ -9,35 +9,35 @@ on:
       - master
 
 jobs:
-  integration-test-1:
+  run-test-1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Integration test 1
+      - name: Run test 1
         uses: ./
 
-  integration-test-2:
+  run-test-2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Integration test 2
+      - name: Run test 2
         uses: ./
         with:
           debug: true
 
-  integration-test-3:
+  run-test-3:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Integration test 3
+      - name: Run test 3
         uses: ./
         with:
           deploy: artifact
 
-  integration-test-4:
+  run-test-4:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -47,7 +47,7 @@ jobs:
           composer create-project hyde/hyde --no-interaction --no-progress --no-dev /tmp/hyde
           cp -r /tmp/hyde/* .
 
-      - name: Integration test 4
+      - name: Run test 4
         uses: ./
 
   lint:
