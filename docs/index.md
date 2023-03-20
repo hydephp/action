@@ -1,4 +1,4 @@
-# Build HydePHP Site GitHub Action
+# HydePHP Site Builder GitHub Action
 
 This GitHub Action builds and deploys the HydePHP project. It has the following inputs and outputs:
 
