@@ -65,7 +65,7 @@ jobs:
       matrix:
         test:
           - name: "Integration test 1"
-            id: "action-test-project-1"
+            id: "github-action-test-project-1"
           # - name: "Integration test 2"
           # - name: "Integration test 3"
     steps:
