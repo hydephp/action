@@ -67,8 +67,6 @@ jobs:
         test:
           - name: "Full HydePHP project"
             id: "github-action-test-project-1"
-          # - name: "Integration test 2"
-          # - name: "Integration test 3"
     steps:
       - uses: actions/checkout@v3
 
@@ -82,7 +80,6 @@ jobs:
           }" >> $GITHUB_OUTPUT
 
       - name: Dispatch integration test ${{ matrix.test.id }}
-        # Trigger workflow named test.yml in https://github.com/hyde-staging/${{ matrix.test.id }}
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.HYDE_STAGING_DISPATCH_TOKEN }}
