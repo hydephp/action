@@ -1,0 +1,26 @@
+name: Integration Tests
+
+on:
+  repository_dispatch:
+    types: [integration-test]
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    name: "Integration test for ${{ github.event.client_payload.reference }}"
+    environment:
+      name: "Integration test for ${{ github.event.client_payload.reference }}"
+      url: ${{ github.event.client_payload.url }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hydephp/action@master
+        with:
+          debug: true
+          upload-artifact: true
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
+      - name: Verify results
+        run: php verify.php
