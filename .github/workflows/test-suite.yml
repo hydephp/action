@@ -81,12 +81,15 @@ jobs:
             ## Get the PR number
             PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
             REFERENCE="PR #${PR_NUMBER}"
+            URL=${{ github.event.repository.html_url }}/pull/${PR_NUMBER}
           else
             REFERENCE="${GITHUB_REF##*/}@${GITHUB_SHA::8}"
+            URL=${{ github.event.repository.html_url }}/commit/${GITHUB_SHA}
           fi
           # Escape the reference string for use in the JSON payload
           REFERENCE=$(echo $REFERENCE | sed -e 's/"/\\"/g' -e "s/'/\\'/g")
           echo "client_payload-reference=$REFERENCE" >> $GITHUB_OUTPUT
+          echo "client_payload-url=$URL" >> $GITHUB_OUTPUT
 
       - name: Prepare client payload
         id: client-payload
@@ -94,7 +97,7 @@ jobs:
           echo "client_payload={ \
             \"ref\": \"${{ github.ref }}\", \
             \"sha\": \"${{ github.sha }}\", \
-            \"url\": \"${{ github.event.repository.html_url }}/commit/${{ github.sha }}\", \
+            \"url\": \"${{ steps.client-payload-reference.outputs.client_payload-url }}\", \
             \"reference\": \"${{ steps.client-payload-reference.outputs.client_payload-reference }}\" \
           }" >> $GITHUB_OUTPUT
 
