@@ -73,7 +73,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run integration test ${{ matrix.test.id }}
-        uses: ./
-        # with:
-        #  foo: ${{ matrix.test.foo }}
+      - name: Dispatch integration test ${{ matrix.test.id }}
+        # Trigger workflow named test.yml in https://github.com/hyde-staging/${{ matrix.test.id }}
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.HYDE_STAGING_DISPATCH_TOKEN }}
+          repository: hyde-staging/${{ matrix.test.id }}
+          event-type: integration-test
