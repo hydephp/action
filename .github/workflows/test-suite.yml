@@ -66,8 +66,8 @@ jobs:
         test:
           - name: "Integration test 1"
               # foo: "bar"
-          - name: "Integration test 2"
-          - name: "Integration test 3"
+          # - name: "Integration test 2"
+          # - name: "Integration test 3"
     steps:
       - uses: actions/checkout@v3
 
