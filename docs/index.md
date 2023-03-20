@@ -1,3 +1,9 @@
+---
+title: Documentation
+navigation:
+  label: Documentation
+---
+
 # HydePHP Site Builder GitHub Action
 
 <p class="lead">
