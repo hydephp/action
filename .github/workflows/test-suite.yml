@@ -78,7 +78,9 @@ jobs:
         run: |
           # if the current branch is a pull request, use the pull request number as the reference, else use the branch name@shortSha
           if [[ $GITHUB_REF == refs/pull/* ]]; then
-              REFERENCE="PR #${GITHUB_REF##*/}"
+              ## Get the PR number
+              PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+              REFERENCE="PR #${PR_NUMBER}"
           else
               REFERENCE="${GITHUB_REF##*/}@${GITHUB_SHA::8}"
           fi
