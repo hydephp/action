@@ -72,6 +72,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Prepare client payload
+        id: client-payload
+        run: |
+          echo 'client_payload={"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "url": "${{ github.event.repository.html_url }}"}' >> $GITHUB_OUTPUT
+
       - name: Dispatch integration test ${{ matrix.test.id }}
         # Trigger workflow named test.yml in https://github.com/hyde-staging/${{ matrix.test.id }}
         uses: peter-evans/repository-dispatch@v2
@@ -79,4 +84,4 @@ jobs:
           token: ${{ secrets.HYDE_STAGING_DISPATCH_TOKEN }}
           repository: hyde-staging/${{ matrix.test.id }}
           event-type: integration-test
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "url": "${{ github.event.repository.html_url }}"}'
+          client-payload: ${{ steps.client-payload.outputs.client_payload }}
