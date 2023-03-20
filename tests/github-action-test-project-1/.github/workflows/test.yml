@@ -17,3 +17,14 @@ jobs:
         with:
           debug: true
           upload-artifact: true
+
+  verify-results:
+    runs-on: ubuntu-latest
+    needs: run-action
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build
+      - name: Verify results
+        run: |
+          echo "TODO: Verify results"
