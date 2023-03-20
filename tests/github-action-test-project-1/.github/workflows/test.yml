@@ -27,5 +27,4 @@ jobs:
         with:
           name: build
       - name: Verify results
-        run: |
-          echo "TODO: Verify results"
+        run: php verify.php
