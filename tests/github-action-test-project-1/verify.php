@@ -15,13 +15,11 @@ function verify(bool|Closure $result): void
         $result = $result();
     }
 
-    if ($result) {
-        echo 'passed';
-    } else {
-        echo 'failed';
+    if (! $result) {
         $exitCode = 1;
     }
-    echo ": $testName\n";
+
+    echo $result ? 'passed' : 'failed' . ": $testName\n";
 }
 
 verify(is_dir('build'));
