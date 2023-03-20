@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "Integration test for ${{ github.event.client_payload.reference }}"
     environment:
-      name: integration-tests
+      name: "Integration test for ${{ github.event.client_payload.reference }}"
       url: ${{ github.event.client_payload.url }}
     steps:
       - uses: actions/checkout@v3
