@@ -2,7 +2,3 @@
 
 *.md diff=markdown
 *.php diff=php
-
-.github/ export-ignore
-tests/ export-ignore
-CHANGELOG.md export-ignore
