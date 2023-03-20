@@ -18,7 +18,7 @@ Enables debug mode.
 
 Specifies what to do with the compiled site. Options are: `artifact` or `pages`.
 
-*   **Description**: Specify what to do with the compiled site. Options are: `artifact` or `pages`. 
+*   **Description**: Specify what to do with the compiled site. Options are: `artifact` or `pages`.
 *   **Required**: `true`
 *   **Default**: `"artifact"`
 
