@@ -70,21 +70,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Prepare client payload
-        id: client-payload
-        run: >
+      - name: Generate payload reference
+        id: client-payload-reference
+        run: |
           # if the current branch is a pull request, use the pull request number as the reference, else use the branch name@shortSha
           if [[ $GITHUB_REF == refs/pull/* ]]; then
               REFERENCE="PR #${GITHUB_REF##*/}"
           else
               REFERENCE="${GITHUB_REF##*/}@${GITHUB_SHA::8}"
           fi
-          
+
+      - name: Prepare client payload
+        id: client-payload
+        run: >
           echo "client_payload={ \
             \"ref\": \"${{ github.ref }}\", \
             \"sha\": \"${{ github.sha }}\", \
             \"url\": \"${{ github.event.repository.html_url }}/commit/${{ github.sha }}\" \
-            \"reference\": \"$REFERENCE\" \
+            \"reference\": \"${{ steps.client-payload-reference.outputs.REFERENCE }}\" \
           }" >> $GITHUB_OUTPUT
 
       - name: Dispatch integration test ${{ matrix.test.id }}
