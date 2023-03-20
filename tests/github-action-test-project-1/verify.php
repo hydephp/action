@@ -34,6 +34,4 @@ verify(is_file('build/sitemap.xml'));
 verify(is_dir('build/media'));
 verify(is_file('build/media/app.css'));
 
-verify(false); // Test it fails build
-
 exit($exitCode);
