@@ -64,7 +64,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test:
+        test-1:
           - name: "Full HydePHP project"
             id: "github-action-test-project-1"
     environment:
