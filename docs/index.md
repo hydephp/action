@@ -103,28 +103,11 @@ Here is an example of a repository tree that would be built using this strategy:
 
 ```tree
 ├── _media
-|    └── app.css
 |── _pages
-|    ├── 404.blade.php
-|    └── index.blade.php
 |── _posts
-|    └── hello-world.md
 |── app
-|    ├── Providers
-|    |   └── AppServiceProvider.php
-|    ├── bootstrap.php
-|    ├── config.php
-|    └── storage
 |── config
-|    ├── docs.php
-|    ├── hyde.php
-|    └── markdown.php
 |── resources
-|    ├── assets
-|    |   ├── app.css
-|    |   └── app.js
-|    └── views
-|── hyde
 |── composer.json
 |── package.json
 |── tailwind.config.js
