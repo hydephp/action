@@ -22,6 +22,16 @@ inputs:
     required: false
     default: "false"
 
+  env-site-name:
+    description: 'Set the `SITE_NAME` environment variable'
+    required: false
+  env-site-url:
+    description: 'Set the `SITE_URL` environment variable'
+    required: false
+  env-torchlight-token:
+    description: 'Set the `TORCHLIGHT_TOKEN` environment variable'
+    required: false
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
