@@ -16,7 +16,7 @@ The action can be used with full HydePHP projects or anonymous projects containi
 
 ## Usage
 
-### Basic
+### Starter Workflow
 
 The following example shows the most basic usage of the action. It will build the site and upload the result as a workflow artifact.
 
