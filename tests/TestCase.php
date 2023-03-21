@@ -31,7 +31,7 @@ final class TestCase
 
     public static function boot(string $file): void
     {
-        echo sprintf("Running tests for %s\n\n", basename(dirname($file)));
+        echo sprintf("%sRunning tests for %s%s\n\n", ANSI::GREEN, basename(dirname($file)), ANSI::RESET);
 
         self::$instance = new self($file);
     }
