@@ -114,8 +114,8 @@ Uploads the compiled site as an artifact. (In addition to the deployment method 
 
 You can also pass set the following inputs to be passed as environment variables for the build process:
 
-**`env-site-name`:** 'Sets the `SITE_NAME` environment variable'
+**`env-site-name`:** Sets the `SITE_NAME` environment variable
 
-**`env-site-url`:** 'Sets the `SITE_URL` environment variable'
+**`env-site-url`:** Sets the `SITE_URL` environment variable
 
-**`env-torchlight-token`:** 'Sets the `TORCHLIGHT_TOKEN` environment variable'
+**`env-torchlight-token`:** Sets the `TORCHLIGHT_TOKEN` environment variable
