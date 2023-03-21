@@ -8,4 +8,8 @@
 [![Integration Test 1](https://github.com/hyde-staging/github-action-test-project-1/actions/workflows/test.yml/badge.svg)](https://github.com/hyde-staging/github-action-test-project-1/actions/workflows/test.yml)
 [![Integration Test 2](https://github.com/hyde-staging/github-action-test-project-2/actions/workflows/test.yml/badge.svg)](https://github.com/hyde-staging/github-action-test-project-2/actions/workflows/test.yml)
 
-Experimental GitHub Actions HydePHP Workflow
+## About
+
+The HydePHP Site Builder Action is a GitHub Action you can use in your Actions Workflow and that takes care building and deploying of HydePHP projects. It can upload the site as a workflow artifact or deploy directly to GitHub Pages.
+
+The action can be used with full HydePHP projects or anonymous projects containing only Markdown/Blade source files. The strategy used is automatically determined by the action depending on the contents of the repository.
