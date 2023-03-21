@@ -20,11 +20,13 @@ final class TestCase
     private const FAILED = ANSI::RED.'failed'.ANSI::RESET;
 
     private static self $instance;
+    private float $startTime;
     private array $contents;
     private int $exitCode;
 
     private function __construct(string $file)
     {
+        $this->startTime = microtime(true);
         $this->contents = file($file);
         $this->exitCode = 0;
     }
@@ -38,7 +40,8 @@ final class TestCase
 
     public static function stop(): int
     {
-        echo sprintf("\n%sTests completed with exit code %d%s\n", ANSI::GREEN, self::getInstance()->exitCode, ANSI::RESET);
+        $stopTimeInMs = number_format((microtime(true) - self::getInstance()->startTime) * 1000, 2);
+        echo sprintf("\n%sTests completed with exit code %d in %s %s\n", ANSI::GREEN, self::getInstance()->exitCode, $stopTimeInMs . 'ms', ANSI::RESET);
 
         return self::getInstance()->exitCode;
     }
