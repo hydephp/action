@@ -23,6 +23,6 @@ jobs:
           name: build
           path: build
       - name: Download test case
-        run: curl -L https://raw.githubusercontent.com/hydephp/action/${{ github.event.client_payload.ref }}/tests/TestCase.php -o TestCase.php
+        run: curl -L https://raw.githubusercontent.com/hydephp/action/${{ github.event.client_payload.sha }}/tests/TestCase.php -o TestCase.php
       - name: Verify results
         run: php verify.php
