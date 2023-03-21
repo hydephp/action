@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 final class TestCase
 {
+    private static self $instance;
     private array $contents;
     private int $exitCode;
 
-    private static self $instance;
+    private function __construct(string $file)
+    {
+        $this->contents = file($file);
+        $this->exitCode = 0;
+    }
 
     public static function boot(string $file): void
     {
@@ -17,12 +22,6 @@ final class TestCase
     public static function stop(): int
     {
         return self::getInstance()->exitCode;
-    }
-
-    private function __construct(string $file)
-    {
-        $this->contents = file($file);
-        $this->exitCode = 0;
     }
 
     private static function getInstance(): self
