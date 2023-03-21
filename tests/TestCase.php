@@ -38,6 +38,8 @@ final class TestCase
 
     public static function stop(): int
     {
+        echo sprintf("\n%sTests completed with exit code %d%s\n", ANSI::GREEN, self::getInstance()->exitCode, ANSI::RESET);
+
         return self::getInstance()->exitCode;
     }
 
