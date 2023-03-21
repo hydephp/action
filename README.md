@@ -57,3 +57,14 @@ jobs:
 ```
 
 Note that the GitHub token must have the proper permissions. You also need to configure your repository to use GitHub Pages using the Actions workflow.
+
+### With Custom Configuration
+
+| Input Name           | Description                                                               | Required | Default Value |
+|----------------------|---------------------------------------------------------------------------|----------|---------------|
+| debug                | Enable debug mode                                                         | false    | "false"       |
+| deploy               | Specify what to do with the compiled site. Options are: [artifact, pages] | true     | "artifact"    |
+| upload-artifact      | Upload the compiled site as an artifact                                   | false    | "false"       |
+| env-site-name        | Set the SITE_NAME environment variable                                    | false    | -             |
+| env-site-url         | Set the SITE_URL environment variable                                     | false    | -             |
+| env-torchlight-token | Set the TORCHLIGHT_TOKEN environment variable                             | false    | -             |
