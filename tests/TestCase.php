@@ -16,7 +16,7 @@ final class TestCase
 
     public static function boot(string $file): void
     {
-        echo 'Running tests for ' . basename(dirname($file)) . "\n\n";
+        echo sprintf("Running tests for %s\n\n", basename(dirname($file)));
 
         self::$instance = new self($file);
     }
