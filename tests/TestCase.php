@@ -16,7 +16,7 @@ final class TestCase
 
     public static function boot(string $file): void
     {
-        echo "Running tests for " . basename(dirname($file)) . "\n\n";
+        echo 'Running tests for ' . basename(dirname($file)) . "\n\n";
 
         self::$instance = new self($file);
     }
