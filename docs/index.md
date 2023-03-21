@@ -17,7 +17,7 @@ and can be used in a few ways depending on your needs.
 
 ### Basic Usage
 
-Here is a quick sample workflow to get you started. It will automatically build your HydePHP site 
+Here is a quick sample workflow to get you started. It will automatically build your HydePHP site
 when you push to your repository, and then upload the compiled site as a workflow artifact.
 
 ```yaml
@@ -114,11 +114,11 @@ Uploads the compiled site as an artifact. (In addition to the deployment method 
 
 You can also pass set the following inputs to be passed as environment variables for the build process:
 
-#### `env-site-name` 
+#### `env-site-name`
 Sets the `SITE_NAME` environment variable
 
-#### `env-site-url` 
+#### `env-site-url`
 Sets the `SITE_URL` environment variable
 
-#### `env-torchlight-token` 
+#### `env-torchlight-token`
 Sets the `TORCHLIGHT_TOKEN` environment variable
