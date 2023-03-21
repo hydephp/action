@@ -10,6 +10,9 @@ navigation:
 This GitHub Action builds and optionally deploys your HydePHP project.
 </p>
 
+## Usage
+
+
 ## Inputs
 
 ### `debug`
