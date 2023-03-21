@@ -51,7 +51,7 @@ Specifies what to do with the compiled site. Options are: `artifact` or `pages`.
 
 ### `upload-artifact`
 
-Uploads the compiled site as an artifact.
+Uploads the compiled site as an artifact. (In addition to the deployment method specified by `deploy`. Makes no change if `deploy` is already set to `artifact`.)
 
 *   **Description**: Upload the compiled site as an artifact.
 *   **Required**: `false`
