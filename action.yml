@@ -2,7 +2,7 @@ name: 'Build HydePHP Site'
 description: 'Build and deploy the HydePHP project'
 branding:
   icon: 'box'
-  color: 'red'
+  color: 'purple'
 
 inputs:
   debug:
