@@ -9,15 +9,20 @@ final class TestCase
 
     private static self $instance;
 
-    public static function boot(string $file, int &$exitCode): void
+    public static function boot(string $file): void
     {
-        self::$instance = new self($file, $exitCode);
+        self::$instance = new self($file);
     }
 
-    private function __construct(string $file, int &$exitCode)
+    public static function stop(): int
+    {
+        return self::getInstance()->exitCode;
+    }
+
+    private function __construct(string $file)
     {
         $this->contents = file($file);
-        $this->exitCode = &$exitCode;
+        $this->exitCode = 0;
     }
 
     private static function getInstance(): self
