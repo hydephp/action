@@ -82,6 +82,80 @@ build:
     id-token: write
 ```
 
+## Supported repository structures
+
+The action works for both full HydePHP projects and "anonymous" projects containing only Markdown/Blade source files.
+The strategy used is automatically determined by the action, depending on the contents of the repository.
+
+Both strategies require that the source files are located in the root directory of the repository.
+They both also support reading configuration from the `hyde.yml` file in the root directory.
+
+### Full HydePHP Projects
+
+The full HydePHP project strategy works by installing the project's composer dependencies. 
+
+This is the recommended setup for most projects, as allows you to use project directories, like additional Composer dependencies,
+the full configuration suite, custom code in the app directory, as well as custom views in the `resources` directory, and more.
+
+This strategy is enabled when the project contains a `composer.json` file in the root directory.
+
+Here is an example of a repository tree that would be built using this strategy:
+
+```tree
+├── _media
+|    └── app.css
+|── _pages
+|    ├── 404.blade.php
+|    └── index.blade.php
+|── _posts
+|    └── hello-world.md
+|── app
+|    ├── Providers
+|    |   └── AppServiceProvider.php
+|    ├── bootstrap.php
+|    ├── config.php
+|    └── storage
+|── config
+|    ├── docs.php
+|    ├── hyde.php
+|    └── markdown.php
+|── resources
+|    ├── assets
+|    |   ├── app.css
+|    |   └── app.js
+|    └── views
+|── hyde
+|── composer.json
+|── package.json
+|── tailwind.config.js
+└── webpack.mix.js
+```
+
+You can also see this test repository where the tree was taken from: https://github.com/hyde-staging/github-action-test-project-1
+
+### Anonymous Projects
+
+The anonymous project strategy works by creating a new HydePHP project and then copying the source files into it.
+This is done when the project does not contain a `composer.json` file in the root directory.
+
+This strategy is great for simple projects that just contain basic pages and that don't require any additional dependencies.
+This documentation site, for example, is built using this strategy, and only contains a single `docs/index.md` file and a `hyde.yml` config file.
+The Torchlight syntax highlighting is enabled automatically by supplying the `env-torchlight-token` secret input.
+
+Here is an example of a repository tree that would be built using this strategy:
+
+```tree
+├── _media
+│   └── app.css
+├── _pages
+│   ├── 404.blade.php
+│   └── index.blade.php
+└── _posts
+    └── hello-world.md
+```
+
+You can also see this test repository where the tree was taken from: https://github.com/hyde-staging/github-action-test-project-2
+
 ## Inputs
 
 ### `debug`
