@@ -4,3 +4,5 @@
 *.php diff=php
 
 tests/ export-ignore
+tests/ linguist-vendored
+docs/ linguist-vendored
