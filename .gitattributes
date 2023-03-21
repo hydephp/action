@@ -3,7 +3,7 @@
 *.md diff=markdown
 *.php diff=php
 
-tests/ linguist-vendored
 tests/ export-ignore
+tests/ linguist-vendored
 docs/ linguist-vendored
 hyde.yml export-ignore
