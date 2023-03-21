@@ -16,7 +16,25 @@ This action is available on the [GitHub Marketplace](https://github.com/marketpl
 
 ### Basic Usage
 
+Here is a quick sample workflow to get you started. It will automatically build your HydePHP site on every push to the `master` branch, and upload the compiled site as a workflow artifact.
 
+```yaml
+name: Build HydePHP Site
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hydephp/action@master
+```
+
+For the rest of the examples, we will omit everything but the `jobs` section as the rest stays the same for all examples.
 
 ## Inputs
 
