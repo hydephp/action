@@ -31,6 +31,12 @@ jobs:
       - uses: hydephp/action@master
 ```
 
+### Deployment options
+
+This action not only builds your site, but it can also deploy it for you. Here are the various
+deployment options supported by the action:
+
+
 ## Inputs
 
 ### `debug`
