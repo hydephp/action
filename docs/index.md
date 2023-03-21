@@ -36,6 +36,26 @@ jobs:
 This action not only builds your site, but it can also deploy it for you. Here are the various
 deployment options supported by the action:
 
+### Artifact upload
+
+By default, the action will "deploy" your site by uploading it as a workflow artifact. This is useful
+if you want to customize the actual deployment process in a separate job, or if you just want to download
+the compiled files manually.
+
+```yaml
+- uses: hydephp/action@master
+  with:
+    deploy: artifact # This is already the default, but it's here for clarity.
+```
+
+You can also enable artifact uploading in addition to another deployment method with the `upload-artifact` input:
+
+```yaml
+- uses: hydephp/action@master
+  with:
+    deploy: pages
+    upload-artifact: true
+```
 
 ## Inputs
 
