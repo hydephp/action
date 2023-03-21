@@ -30,4 +30,4 @@ jobs:
         with:
           deploy: pages
           env-torchlight-token: ${{ secrets.TORCHLIGHT_TOKEN }}
-          env-site-name: "HydePHP GitHub Action"
+          env-site-name: '"HydePHP GitHub Action"'
