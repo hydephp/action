@@ -98,7 +98,7 @@ They both also support reading configuration from the `hyde.yml` file in the roo
 
 ### Full HydePHP Projects
 
-The full HydePHP project strategy works by installing the project's composer dependencies. 
+The full HydePHP project strategy works by installing the project's composer dependencies.
 
 This is the recommended setup for most projects, as allows you to use project directories, like additional Composer dependencies,
 the full configuration suite, custom code in the app directory, as well as custom views in the `resources` directory, and more.
