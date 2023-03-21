@@ -85,7 +85,7 @@ runs:
       shell: bash
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-autoloader --no-dev && composer dump-autoload --quiet
+      run: composer install --prefer-dist --no-progress --no-autoloader && composer dump-autoload --quiet
       shell: bash
 
     - name: Build the site
