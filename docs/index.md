@@ -69,6 +69,17 @@ You can also deploy the compiled site directly to GitHub Pages, by setting the `
 
 You also need to make sure that your GitHub Pages source is set to "GitHub Actions" and that the `GITHUB_TOKEN` has the permission `"id-token: write"`.
 
+You can set the permissions using the following code, added to the `jobs.<job_id>.permissions` section of your workflow file:
+
+```yaml
+build:
+  runs-on: ubuntu-latest
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+```
+
 ## Inputs
 
 ### `debug`
