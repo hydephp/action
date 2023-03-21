@@ -16,6 +16,9 @@ final class TestCase
 
     public static function boot(string $file): void
     {
+        $name = basename(dirname($file));
+        echo "Running tests for $name\n\n";
+
         self::$instance = new self($file);
     }
 
