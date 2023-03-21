@@ -26,7 +26,7 @@ jobs:
       url: https://hydephp.github.io/action
     steps:
       - uses: actions/checkout@v3
-      - uses: hydephp/action@master
+      - uses: hydephp/action@support-environment-variables
         with:
           deploy: pages
           env-torchlight-token: ${{ secrets.TORCHLIGHT_TOKEN }}
