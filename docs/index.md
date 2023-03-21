@@ -59,7 +59,7 @@ You can also enable artifact uploading in addition to another deployment method 
 
 ### GitHub Pages (Direct deployment)
 
->warn This method depends on [`actions/deploy-pages`](https://github.com/actions/deploy-pages), which is currently in public beta.
+>warning This method depends on [`actions/deploy-pages`](https://github.com/actions/deploy-pages), which is currently in public beta.
 
 You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy` input to "pages".
 
