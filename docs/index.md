@@ -12,6 +12,8 @@ This GitHub Action builds and optionally deploys your HydePHP project.
 
 ## Usage
 
+This action is available on the [GitHub Marketplace](https://github.com/marketplace/actions/build-hydephp-site), and can be used in a few ways depending on your needs.
+
 
 ## Inputs
 
