@@ -13,3 +13,47 @@
 The HydePHP Site Builder Action is a GitHub Action you can use in your Actions Workflow and that takes care building and deploying of HydePHP projects. It can upload the site as a workflow artifact or deploy directly to GitHub Pages.
 
 The action can be used with full HydePHP projects or anonymous projects containing only Markdown/Blade source files. The strategy used is automatically determined by the action depending on the contents of the repository.
+
+## Usage
+
+### Basic
+
+The following example shows the most basic usage of the action. It will build the site and upload the result as a workflow artifact.
+
+```yaml
+name: Build HydePHP Site
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hydephp/action@master
+```
+
+The artifact will be uploaded as `build` and can be downloaded from the workflow run, or in a subsequent workflow step for custom deployment.
+
+### With Deployment
+
+The following example shows how to deploy the site to GitHub Pages. The action will build the site and deploy directly to GitHub Pages.
+
+```yaml
+name: Build and Deploy HydePHP Site
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hydephp/action@master
+        with:
+          deploy: "pages"
+```
+
+Note that the GitHub token must have the proper permissions. You also need to configure your repository to use GitHub Pages using the Actions workflow.
