@@ -8,3 +8,4 @@ hyde.yml export-ignore
 
 tests/** linguist-vendored
 docs/** linguist-documentation
+action.yml linguist-detectable
