@@ -70,3 +70,7 @@ There are a few more configuration options available, that can be supplied to th
 | `env-site-name`        | Set the `SITE_NAME` environment variable                                      | _none_        |
 | `env-site-url`         | Set the `SITE_URL` environment variable                                       | _none_        |
 | `env-torchlight-token` | Set the `TORCHLIGHT_TOKEN` environment variable                               | _none_        |
+
+## Further documentation
+
+See the live documentation, build with this action, through this repository, at https://hydephp.github.io/action.
