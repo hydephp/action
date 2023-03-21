@@ -47,7 +47,7 @@ final class TestCase
             self::getInstance()->exitCode = 1;
         }
 
-        echo $result ? self::PASSED : self::FAILED . ": $testName\n";
+        echo ($result ? self::PASSED : self::FAILED) . ": $testName\n";
     }
 }
 
