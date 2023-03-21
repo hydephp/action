@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 final class TestCase
 {
-    private const PASSED = "\033[32mpassed\033[0m";
-    private const FAILED = "\033[31mfailed\033[0m";
+    private const PASSED = ANSI::GREEN.'passed'.ANSI::RESET;
+    private const FAILED = ANSI::RED.'failed'.ANSI::RESET;
 
     private static self $instance;
     private array $contents;
@@ -49,6 +49,18 @@ final class TestCase
 
         echo ($result ? self::PASSED : self::FAILED) . ": $testName\n";
     }
+}
+
+interface ANSI {
+    const BLACK = "\033[30m";
+    const RED = "\033[31m";
+    const GREEN = "\033[32m";
+    const YELLOW = "\033[33m";
+    const BLUE = "\033[34m";
+    const MAGENTA = "\033[35m";
+    const CYAN = "\033[36m";
+    const WHITE = "\033[37m";
+    const RESET = "\033[0m";
 }
 
 function verify(bool|Closure $result): void
