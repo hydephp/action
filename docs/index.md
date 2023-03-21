@@ -59,7 +59,7 @@ You can also enable artifact uploading in addition to another deployment method 
 
 ### GitHub Pages (Direct deployment)
 
->warn This method depends on [`actions/upload-pages-artifact`](https://github.com/actions/upload-pages-artifact), which is currently in public beta.
+>warn This method depends on [`actions/deploy-pages`](https://github.com/actions/deploy-pages), which is currently in public beta.
 
 You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy` input to "pages".
 
@@ -69,7 +69,7 @@ You can also deploy the compiled site directly to GitHub Pages, by setting the `
     deploy: "pages"
 ```
 
-You also need to make sure that your GitHub Pages source is set to "GitHub Actions" and that the `GITHUB_TOKEN` has the permission `"id-token: write"`.
+You also need to make sure that your GitHub Pages source is set to "GitHub Actions" and that the `GITHUB_TOKEN` has the `id-token: write` and `pages: write` permissions.
 
 You can set the permissions using the following code, added to the `jobs.<job_id>.permissions` section of your workflow file:
 
