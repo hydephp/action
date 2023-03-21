@@ -57,6 +57,16 @@ You can also enable artifact uploading in addition to another deployment method 
     upload-artifact: true
 ```
 
+### GitHub Pages (Direct deployment)
+
+You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy` input to "pages".
+
+```yaml
+- uses: hydephp/action@master
+  with:
+    deploy: "pages"
+```
+
 ## Inputs
 
 ### `debug`
