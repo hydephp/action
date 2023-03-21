@@ -41,7 +41,7 @@ final class TestCase
     public static function stop(): int
     {
         $stopTimeInMs = number_format((microtime(true) - self::getInstance()->startTime) * 1000, 2);
-        echo sprintf("\n%sTests completed with exit code %d in %s %s\n", ANSI::GREEN, self::getInstance()->exitCode, $stopTimeInMs . 'ms', ANSI::RESET);
+        echo sprintf("\n%sTests completed in %s with exit code %d %s\n", ANSI::GREEN, $stopTimeInMs . 'ms', self::getInstance()->exitCode, ANSI::RESET);
 
         return self::getInstance()->exitCode;
     }
