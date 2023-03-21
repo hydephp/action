@@ -60,6 +60,8 @@ Note that the GitHub token must have the proper permissions. You also need to co
 
 ### With Custom Configuration
 
+There are a few more configuration options available, that can be supplied to the action using the `with` keyword. 
+
 | Input Name           | Description                                                               | Required | Default Value |
 |----------------------|---------------------------------------------------------------------------|----------|---------------|
 | debug                | Enable debug mode                                                         | false    | "false"       |
