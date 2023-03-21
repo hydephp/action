@@ -67,6 +67,8 @@ You can also deploy the compiled site directly to GitHub Pages, by setting the `
     deploy: "pages"
 ```
 
+You also need to make sure that your GitHub Pages source is set to "GitHub Actions" and that the `GITHUB_TOKEN` has the permission `"id-token: write"`.
+
 ## Inputs
 
 ### `debug`
