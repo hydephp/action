@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 final class TestCase
 {
+    private const PASSED = 'passed';
+    private const FAILED = 'failed';
+
     private static self $instance;
     private array $contents;
     private int $exitCode;
@@ -44,7 +47,7 @@ final class TestCase
             self::getInstance()->exitCode = 1;
         }
 
-        echo $result ? 'passed' : 'failed' . ": $testName\n";
+        echo $result ? self::PASSED : self::FAILED . ": $testName\n";
     }
 }
 
