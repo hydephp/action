@@ -131,6 +131,8 @@ Here is an example of a repository tree that would be built using this strategy:
 └── webpack.mix.js
 ```
 
+You can also see this test repository where the tree was taken from: https://github.com/hyde-staging/github-action-test-project-1
+
 ### Anonymous Projects
 
 The anonymous project strategy works by creating a new HydePHP project and then copying the source files into it.
@@ -151,6 +153,8 @@ Here is an example of a repository tree that would be built using this strategy:
 └── _posts
     └── hello-world.md
 ```
+
+You can also see this test repository where the tree was taken from: https://github.com/hyde-staging/github-action-test-project-2
 
 ## Inputs
 
