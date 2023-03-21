@@ -67,6 +67,6 @@ There are a few more configuration options available, that can be supplied to th
 | debug                | Enable debug mode                                                         | "false"       |
 | deploy               | Specify what to do with the compiled site. Options are: [artifact, pages] | "artifact"    |
 | upload-artifact      | Upload the compiled site as an artifact                                   | "false"       |
-| env-site-name        | Set the SITE_NAME environment variable                                    | -             |
-| env-site-url         | Set the SITE_URL environment variable                                     | -             |
-| env-torchlight-token | Set the TORCHLIGHT_TOKEN environment variable                             | -             |
+| env-site-name        | Set the SITE_NAME environment variable                                    | _none_        |
+| env-site-url         | Set the SITE_URL environment variable                                     | _none_        |
+| env-torchlight-token | Set the TORCHLIGHT_TOKEN environment variable                             | _none_        |
