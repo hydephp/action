@@ -60,7 +60,7 @@ Note that the GitHub token must have the proper permissions. You also need to co
 
 ### Configuration Options
 
-There are a few more configuration options available, that can be supplied to the action using the `with` keyword.
+There are a few more configuration options available, that can be supplied to the action using the `with` keyword, as shown in the examples above.
 
 | Input Name             | Description                                                                   | Default Value |
 |------------------------|-------------------------------------------------------------------------------|---------------|
