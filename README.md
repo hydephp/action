@@ -62,14 +62,14 @@ Note that the GitHub token must have the proper permissions. You also need to co
 
 There are a few more configuration options available, that can be supplied to the action using the `with` keyword, as shown in the examples above.
 
-| Input Name             | Description                                                                   | Default Value |
-|------------------------|-------------------------------------------------------------------------------|---------------|
-| `deploy`               | Specify what to do with the compiled site. Options are: ["artifact", "pages"] | "artifact"    |
-| `upload-artifact`      | Upload the compiled site as an artifact, regardless of the deployment option  | `false`       |
-| `debug`                | Enable debug mode                                                             | `false`       |
-| `env-site-name`        | Set the `SITE_NAME` environment variable                                      | _none_        |
-| `env-site-url`         | Set the `SITE_URL` environment variable                                       | _none_        |
-| `env-torchlight-token` | Set the `TORCHLIGHT_TOKEN` environment variable                               | _none_        |
+| Input Name             | Description                                                                      | Default Value |
+|------------------------|----------------------------------------------------------------------------------|---------------|
+| `deploy`               | Specify what to do with the compiled site.<br>Options are: ["artifact", "pages"] | "artifact"    |
+| `upload-artifact`      | Upload the compiled site as an artifact, regardless of the deployment option     | `false`       |
+| `debug`                | Enable debug mode                                                                | `false`       |
+| `env-site-name`        | Set the `SITE_NAME` environment variable                                         | _none_        |
+| `env-site-url`         | Set the `SITE_URL` environment variable                                          | _none_        |
+| `env-torchlight-token` | Set the `TORCHLIGHT_TOKEN` environment variable                                  | _none_        |
 
 ## Further documentation
 
