@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - support-environment-variables
+      - master
 
 jobs:
   test-action:
