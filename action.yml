@@ -101,6 +101,14 @@ runs:
       run: composer install --prefer-dist --no-progress --no-autoloader && composer dump-autoload --quiet
       shell: bash
 
+    - name: Set up environment variables
+      run: |
+        # If there is a .env.example file, copy it to .env
+        if [[ -f .env.example ]]; then
+          cp .env.example .env
+        fi
+      shell: bash
+
     # Inject environment variables
     - if: inputs.env-site-name != ''
       run: echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
