@@ -101,6 +101,17 @@ runs:
       run: composer install --prefer-dist --no-progress --no-autoloader && composer dump-autoload --quiet
       shell: bash
 
+    # Inject environment variables
+    - if: inputs.env-site-name != ''
+      run: echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
+      shell: bash
+    - if: inputs.env-site-url != ''
+      run: echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
+      shell: bash
+    - if: inputs.env-torchlight-token != ''
+      run: echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
+      shell: bash
+
     - name: Build the site
       run: php hyde build --no-interaction --ansi
       shell: bash
