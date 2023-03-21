@@ -58,7 +58,7 @@ jobs:
 
 Note that the GitHub token must have the proper permissions. You also need to configure your repository to use GitHub Pages using the Actions workflow.
 
-### With Custom Configuration
+### Configuration Options
 
 There are a few more configuration options available, that can be supplied to the action using the `with` keyword.
 
