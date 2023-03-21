@@ -13,7 +13,7 @@ jobs:
       url: ${{ github.event.client_payload.url }}
     steps:
       - uses: actions/checkout@v3
-      - uses: hydephp/action@${{ github.event.client_payload.sha }}
+      - uses: "hydephp/action@${{ github.event.client_payload.sha }}"
         with:
           debug: true
           upload-artifact: true
