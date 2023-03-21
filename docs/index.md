@@ -107,3 +107,15 @@ Uploads the compiled site as an artifact. (In addition to the deployment method 
 *   **Description**: Upload the compiled site as an artifact.
 *   **Required**: `false`
 *   **Default**: `"false"`
+
+### Environment variables
+
+You can also pass set the following inputs to be passed as environment variables for the build process:
+
+**`env-site-name`:** 'Sets the `SITE_NAME` environment variable'
+
+**`env-site-url`:** 'Sets the `SITE_URL` environment variable'
+
+**`env-torchlight-token`:** 'Sets the `TORCHLIGHT_TOKEN` environment variable'
+
+>warning If your inputs contain sensitive information, you should use [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) to store them.
