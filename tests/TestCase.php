@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 final class TestCase
 {
-    private const PASSED = 'passed';
-    private const FAILED = 'failed';
+    private const PASSED = "\033[32mpassed\033[0m";
+    private const FAILED = "\033[31mfailed\033[0m";
 
     private static self $instance;
     private array $contents;
