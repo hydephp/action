@@ -99,6 +99,38 @@ the full configuration suite, custom code in the app directory, as well as custo
 
 This strategy is enabled when the project contains a `composer.json` file in the root directory.
 
+Here is an example of a repository tree that would be built using this strategy:
+
+```tree
+├── _media
+|    └── app.css
+|── _pages
+|    ├── 404.blade.php
+|    └── index.blade.php
+|── _posts
+|    └── hello-world.md
+|── app
+|    ├── Providers
+|    |   └── AppServiceProvider.php
+|    ├── bootstrap.php
+|    ├── config.php
+|    └── storage
+|── config
+|    ├── docs.php
+|    ├── hyde.php
+|    └── markdown.php
+|── resources
+|    ├── assets
+|    |   ├── app.css
+|    |   └── app.js
+|    └── views
+|── hyde
+|── composer.json
+|── package.json
+|── tailwind.config.js
+└── webpack.mix.js
+```
+
 ### Anonymous Projects
 
 The anonymous project strategy works by creating a new HydePHP project and then copying the source files into it.
@@ -108,6 +140,17 @@ This strategy is great for simple projects that just contain basic pages and tha
 This documentation site, for example, is built using this strategy, and only contains a single `docs/index.md` file and a `hyde.yml` config file.
 The Torchlight syntax highlighting is enabled automatically by supplying the `env-torchlight-token` secret input.
 
+Here is an example of a repository tree that would be built using this strategy:
+
+```tree
+├── _media
+│   └── app.css
+├── _pages
+│   ├── 404.blade.php
+│   └── index.blade.php
+└── _posts
+    └── hello-world.md
+```
 
 ## Inputs
 
