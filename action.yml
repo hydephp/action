@@ -51,12 +51,12 @@ runs:
 
     - name: Validate input
       id: validate-input
-      run: bash src/validate-input.sh ${{ inputs.deploy-to }}
+      run: bash validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Determine install strategy
       id: determine-install-strategy
-      run: bash src/determine-install-strategy.sh
+      run: bash determine-install-strategy.sh
       shell: bash
 
     - name: Print debug information
@@ -86,7 +86,7 @@ runs:
 
     - name: Download latest release
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
-      run: bash src/download-latest-release.sh ${{ inputs.framework-version }}
+      run: bash download-latest-release.sh ${{ inputs.framework-version }}
       shell: bash
 
     - name: Install dependencies
@@ -94,7 +94,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: bash src/setup-environment-variables.sh
+      run: bash setup-environment-variables.sh
       shell: bash
 
     # Inject environment variables
