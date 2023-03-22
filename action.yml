@@ -64,6 +64,10 @@ runs:
         fi
       shell: bash
 
+    - name: Add action path to GitHub PATH
+      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+
     - name: Print debug information
       if: inputs.debug == 'true'
       run: |
