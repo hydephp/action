@@ -47,21 +47,16 @@ runs:
   steps:
     - name: Validate input
       id: validate-input
-      run: |
-        if [[ "${{ inputs.deploy-to }}" != "artifact" ]] && [[ "${{ inputs.deploy-to }}" != "pages" ]]; then
-          echo "Invalid input for deploy-to: ${{ inputs.deploy-to }}"
-          exit 1
-        fi
+      run: bash src/validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Determine install strategy
       id: determine-install-strategy
-      run: |
-        if [[ -f composer.json ]]; then
-          echo "install-strategy=composer" >> $GITHUB_OUTPUT
-        else
-          echo "install-strategy=archive" >> $GITHUB_OUTPUT
-        fi
+      run: bash src/determine-install-strategy.sh
+      shell: bash
+
+    - name: Add action path to GitHub PATH
+      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
 
     - name: Print debug information
@@ -70,6 +65,7 @@ runs:
         echo "Debug mode: ${{ inputs.debug }}"
         echo "Deployment option: ${{ inputs.deploy-to }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
+        echo action_path: ${{ github.action_path }}
       shell: bash
 
     - name: Validate composer.json and composer.lock
@@ -89,22 +85,7 @@ runs:
 
     - name: Download latest release
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
-      run: |
-        # Copy all root files to backup directory
-        cp -r . ../backup
-        # Download latest version of HydePHP
-        git clone https://github.com/hydephp/hyde.git ../hyde --depth 1
-        # Copy HydePHP files to root
-        cp -r ../hyde/* .
-        # Remove default pages
-        rm _pages/index.blade.php _pages/404.blade.php
-        # Copy Backup files to root
-        cp -r ../backup/* .
-        
-        # If version is set to something other than latest, require that framework version
-        if [[ "${{ inputs.framework-version }}" != "latest" ]]; then
-          composer require hyde/framework:${{ inputs.framework-version }} --no-install
-        fi
+      run: bash src/download-latest-release.sh ${{ inputs.framework-version }}
       shell: bash
 
     - name: Install dependencies
@@ -112,11 +93,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: |
-        # If there is a .env.example file, copy it to .env
-        if [[ -f .env.example ]]; then
-          cp .env.example .env
-        fi
+      run: bash src/setup-environment-variables.sh
       shell: bash
 
     # Inject environment variables
