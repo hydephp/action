@@ -11,7 +11,7 @@ test_copy_env_example() {
   echo "foo" > .env.example
 
   # Call the script
-  "$base_dir"/src/setup-environment-variables.sh
+  "$base_dir"/setup-environment-variables.sh
 
   # Assert that the .env file was created
   if [[ ! -f .env ]]; then

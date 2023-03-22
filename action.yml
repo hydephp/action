@@ -45,18 +45,18 @@ outputs:
 runs:
   using: "composite"
   steps:
+    - name: Add action path to GitHub PATH
+      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+
     - name: Validate input
       id: validate-input
-      run: bash src/validate-input.sh ${{ inputs.deploy-to }}
+      run: bash validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Determine install strategy
       id: determine-install-strategy
-      run: bash src/determine-install-strategy.sh
-      shell: bash
-
-    - name: Add action path to GitHub PATH
-      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      run: bash determine-install-strategy.sh
       shell: bash
 
     - name: Print debug information
@@ -66,6 +66,7 @@ runs:
         echo "Deployment option: ${{ inputs.deploy-to }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
         echo action_path: ${{ github.action_path }}
+        ls -la ${{ github.action_path }}
       shell: bash
 
     - name: Validate composer.json and composer.lock
@@ -85,7 +86,7 @@ runs:
 
     - name: Download latest release
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
-      run: bash src/download-latest-release.sh ${{ inputs.framework-version }}
+      run: bash download-latest-release.sh ${{ inputs.framework-version }}
       shell: bash
 
     - name: Install dependencies
@@ -93,7 +94,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: bash src/setup-environment-variables.sh
+      run: bash setup-environment-variables.sh
       shell: bash
 
     # Inject environment variables
