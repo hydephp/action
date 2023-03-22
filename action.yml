@@ -46,17 +46,17 @@ runs:
   using: "composite"
   steps:
     - name: Add action path to GitHub PATH
-      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      run: echo "${{ github.action_path }}/src" >> $GITHUB_PATH
       shell: bash
 
     - name: Validate input
       id: validate-input
-      run: bash validate-input.sh ${{ inputs.deploy-to }}
+      run: bash src/validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Determine install strategy
       id: determine-install-strategy
-      run: bash determine-install-strategy.sh
+      run: bash src/determine-install-strategy.sh
       shell: bash
 
     - name: Print debug information
@@ -86,7 +86,7 @@ runs:
 
     - name: Download latest release
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
-      run: bash download-latest-release.sh ${{ inputs.framework-version }}
+      run: bash src/download-latest-release.sh ${{ inputs.framework-version }}
       shell: bash
 
     - name: Install dependencies
@@ -94,7 +94,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: bash setup-environment-variables.sh
+      run: bash src/setup-environment-variables.sh
       shell: bash
 
     # Inject environment variables
