@@ -23,7 +23,7 @@ inputs:
     default: "false"
 
   version:
-    description: 'The version of HydePHP to install (only applicable when using archive install strategy)'
+    description: 'The framework version of HydePHP to install (only applicable when using archive install strategy)'
     required: false
     default: "latest"
 
