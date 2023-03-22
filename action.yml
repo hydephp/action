@@ -52,12 +52,7 @@ runs:
 
     - name: Determine install strategy
       id: determine-install-strategy
-      run: |
-        if [[ -f composer.json ]]; then
-          echo "install-strategy=composer" >> $GITHUB_OUTPUT
-        else
-          echo "install-strategy=archive" >> $GITHUB_OUTPUT
-        fi
+      run: bash src/determine-install-strategy.sh
       shell: bash
 
     - name: Add action path to GitHub PATH
