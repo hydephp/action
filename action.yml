@@ -102,11 +102,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: |
-        # If there is a .env.example file, copy it to .env
-        if [[ -f .env.example ]]; then
-          cp .env.example .env
-        fi
+      run: bash src/setup-environment-variables.sh
       shell: bash
 
     # Inject environment variables
