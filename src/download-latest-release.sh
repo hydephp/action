@@ -17,5 +17,5 @@ cp -r ../backup/* .
 
 # If version is set to something other than latest, require that framework version
 if [[ "$version" != "latest" ]]; then
-composer require hyde/framework:$version --no-install
+composer require hyde/framework:"$version" --no-install
 fi
