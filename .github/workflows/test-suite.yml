@@ -17,6 +17,14 @@ jobs:
       - name: Run linter
         run: php tests/lint.php
 
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run unit tests
+        run: bash tests/unit-tests.sh
+
   run-workflow-test-1:
     runs-on: ubuntu-latest
     steps:
