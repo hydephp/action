@@ -75,6 +75,7 @@ runs:
         echo "Deployment option: ${{ inputs.deploy-to }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
         echo action_path: ${{ github.action_path }}
+        ls -la ${{ github.action_path }}
       shell: bash
 
     - name: Validate composer.json and composer.lock
