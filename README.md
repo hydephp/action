@@ -53,7 +53,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: hydephp/action@master
         with:
-          deploy: "pages"
+          deploy-to: "pages"
 ```
 
 Note that the GitHub token must have the proper permissions. You also need to configure your repository to use GitHub Pages using the Actions workflow.

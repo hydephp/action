@@ -51,7 +51,7 @@ the compiled files manually.
 ```yaml
 - uses: hydephp/action@master
   with:
-    deploy: artifact # This is already the default, but it's here for clarity.
+    deploy-to: artifact # This is already the default, but it's here for clarity.
 ```
 
 You can also enable artifact uploading in addition to another deployment method with the `upload-artifact` input:
@@ -59,7 +59,7 @@ You can also enable artifact uploading in addition to another deployment method 
 ```yaml
 - uses: hydephp/action@master
   with:
-    deploy: pages
+    deploy-to: pages
     upload-artifact: true
 ```
 
@@ -72,7 +72,7 @@ You can also deploy the compiled site directly to GitHub Pages, by setting the `
 ```yaml
 - uses: hydephp/action@master
   with:
-    deploy: "pages"
+    deploy-to: "pages"
 ```
 
 You also need to make sure that your GitHub Pages source is set to "GitHub Actions" and that the `GITHUB_TOKEN` has the `id-token: write` and `pages: write` permissions.

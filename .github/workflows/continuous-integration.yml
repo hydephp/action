@@ -28,6 +28,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: hydephp/action@master
         with:
-          deploy: pages
+          deploy-to: pages
           env-torchlight-token: ${{ secrets.TORCHLIGHT_TOKEN }}
           env-site-name: "'HydePHP Action'"
