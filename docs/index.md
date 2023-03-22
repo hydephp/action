@@ -67,7 +67,7 @@ You can also enable artifact uploading in addition to another deployment method 
 
 >warning This method depends on [`actions/deploy-pages`](https://github.com/actions/deploy-pages), which is currently in public beta.
 
-You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy` input to "pages".
+You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy-to` input to "pages".
 
 ```yaml
 - uses: hydephp/action@master
@@ -155,7 +155,7 @@ Enables debug mode.
 *   **Required**: `false`
 *   **Default**: `"false"`
 
-### `deploy`
+### `deploy-to`
 
 Specifies what to do with the compiled site. Options are: `artifact` or `pages`.
 
@@ -165,7 +165,7 @@ Specifies what to do with the compiled site. Options are: `artifact` or `pages`.
 
 ### `upload-artifact`
 
-Uploads the compiled site as an artifact. (In addition to the deployment method specified by `deploy`. Makes no change if `deploy` is already set to `artifact`.)
+Uploads the compiled site as an artifact. (In addition to the deployment method specified by `deploy-to`. Makes no change if `deploy-to` is already set to `artifact`.)
 
 *   **Description**: Upload the compiled site as an artifact.
 *   **Required**: `false`
