@@ -100,6 +100,11 @@ runs:
         rm _pages/index.blade.php _pages/404.blade.php
         # Copy Backup files to root
         cp -r ../backup/* .
+        
+        # If version is set to something other than latest, require that framework version
+        if [[ "${{ inputs.version }}" != "latest" ]]; then
+          composer require hyde/framework:${{ inputs.version }} --no-install
+        fi
       shell: bash
 
     - name: Install dependencies
