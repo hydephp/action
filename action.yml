@@ -10,7 +10,7 @@ inputs:
     required: false
     default: "false"
 
-  deploy:
+  deploy-to:
     # Pages option requires GitHub the "Build and deployment" source to be set to "GitHub Actions"
     # You must also ensure that GITHUB_TOKEN has permission "id-token: write".
     description: 'Specify what to do with the compiled site. Options are: [artifact, pages]'
@@ -48,8 +48,8 @@ runs:
     - name: Validate input
       id: validate-input
       run: |
-        if [[ "${{ inputs.deploy }}" != "artifact" ]] && [[ "${{ inputs.deploy }}" != "pages" ]]; then
-          echo "Invalid input for deploy: ${{ inputs.deploy }}"
+        if [[ "${{ inputs.deploy-to }}" != "artifact" ]] && [[ "${{ inputs.deploy-to }}" != "pages" ]]; then
+          echo "Invalid input for deploy-to: ${{ inputs.deploy-to }}"
           exit 1
         fi
       shell: bash
@@ -68,7 +68,7 @@ runs:
       if: inputs.debug == 'true'
       run: |
         echo "Debug mode: ${{ inputs.debug }}"
-        echo "Deploy option: ${{ inputs.deploy }}"
+        echo "Deployment option: ${{ inputs.deploy-to }}"
         echo "Install strategy: ${{ steps.determine-install-strategy.outputs.install-strategy }}"
       shell: bash
 
@@ -135,25 +135,25 @@ runs:
       shell: bash
 
     - name: Upload artifact
-      if: inputs.deploy == 'artifact' || inputs.upload-artifact == 'true'
+      if: inputs.deploy-to == 'artifact' || inputs.upload-artifact == 'true'
       uses: actions/upload-artifact@v3
       with:
         name: build
         path: _site # TODO: Get this from the config file in case it's customized
 
     - name: Setup Pages
-      if: inputs.deploy == 'pages'
+      if: inputs.deploy-to == 'pages'
       uses: actions/configure-pages@v3
 
     - name: Upload artifact
-      if: inputs.deploy == 'pages'
+      if: inputs.deploy-to == 'pages'
       uses: actions/upload-pages-artifact@v1
       with:
         path: _site # TODO: Get this from the config file in case it's customized
 
     - name: Deploy to GitHub Pages
       id: pages-deployment
-      if: inputs.deploy == 'pages'
+      if: inputs.deploy-to == 'pages'
       uses: actions/deploy-pages@v1
 
     # Now that the site is built, there are a few options for deployment.

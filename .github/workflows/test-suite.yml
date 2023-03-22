@@ -43,7 +43,7 @@ jobs:
       - name: Run workflow test 3
         uses: ./
         with:
-          deploy: artifact
+          deploy-to: artifact
 
   run-workflow-test-4:
     runs-on: ubuntu-latest
