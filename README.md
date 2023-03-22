@@ -67,7 +67,7 @@ There are a few more configuration options available, that can be supplied to th
 | `deploy`               | Specify what to do with the compiled site.<br>Supported options are: ["artifact", "pages"]                                                    | "artifact"    |
 | `upload-artifact`      | Upload the site artifact, regardless of the `deploy` option                                                                                   | `false`       |
 | `debug`                | Enable additional debug output                                                                                                                | `false`       |
-| `version`              | Specify the HydePHP Framework version to use (only applicable for [anonymous projects](https://hydephp.github.io/action/#anonymous-projects)) | "latest"      |
+| `framework-version`    | Specify the HydePHP Framework version to use (only applicable for [anonymous projects](https://hydephp.github.io/action/#anonymous-projects)) | "latest"      |
 | `env-site-name`        | Set the `SITE_NAME` environment variable                                                                                                      | _none_        |
 | `env-site-url`         | Set the `SITE_URL` environment variable                                                                                                       | _none_        |
 | `env-torchlight-token` | Set the `TORCHLIGHT_TOKEN` environment variable                                                                                               | _none_        |

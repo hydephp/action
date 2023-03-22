@@ -171,7 +171,7 @@ Uploads the compiled site as an artifact. (In addition to the deployment method 
 *   **Required**: `false`
 *   **Default**: `"false"`
 
-### `version`
+### `framework-version`
 
 Specifies the version of HydePHP to use. If not specified, the latest stable version will be used.
 

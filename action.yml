@@ -22,7 +22,7 @@ inputs:
     required: false
     default: "false"
 
-  version:
+  framework-version:
     description: 'The framework version of HydePHP to install (only applicable when using archive install strategy)'
     required: false
     default: "latest"
@@ -102,8 +102,8 @@ runs:
         cp -r ../backup/* .
         
         # If version is set to something other than latest, require that framework version
-        if [[ "${{ inputs.version }}" != "latest" ]]; then
-          composer require hyde/framework:${{ inputs.version }} --no-install
+        if [[ "${{ inputs.framework-version }}" != "latest" ]]; then
+          composer require hyde/framework:${{ inputs.framework-version }} --no-install
         fi
       shell: bash
 
