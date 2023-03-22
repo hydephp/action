@@ -22,6 +22,11 @@ inputs:
     required: false
     default: "false"
 
+  framework-version:
+    description: 'The framework version of HydePHP to install (only applicable when using archive install strategy)'
+    required: false
+    default: "latest"
+
   env-site-name:
     description: 'Set the `SITE_NAME` environment variable'
     required: false
@@ -95,6 +100,11 @@ runs:
         rm _pages/index.blade.php _pages/404.blade.php
         # Copy Backup files to root
         cp -r ../backup/* .
+        
+        # If version is set to something other than latest, require that framework version
+        if [[ "${{ inputs.framework-version }}" != "latest" ]]; then
+          composer require hyde/framework:${{ inputs.framework-version }} --no-install
+        fi
       shell: bash
 
     - name: Install dependencies

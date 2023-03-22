@@ -171,6 +171,16 @@ Uploads the compiled site as an artifact. (In addition to the deployment method 
 *   **Required**: `false`
 *   **Default**: `"false"`
 
+### `framework-version`
+
+Specifies the version of HydePHP to use. If not specified, the latest stable version will be used.
+
+This is only used when the anonymous project strategy is used, (i.e. when the project does not contain a `composer.json` file in the root directory).
+
+*   **Description**: Specify the version of HydePHP to use. If not specified, the latest stable version will be used.
+*   **Required**: `false`
+*   **Default**: `"latest"`
+
 ### Environment variables
 
 >warning If your inputs contain sensitive information, you should use [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) to store them.
