@@ -125,7 +125,7 @@ You can also see this test repository where the tree was taken from: [`hyde-stag
 ### Anonymous Projects
 
 The anonymous project strategy works by creating a new HydePHP project and then copying the source files into it.
-This is done when the project does not contain a `composer.json` file in the root directory.
+This is done when the project does not contain a `composer.json` file in the root directory. The installed project will use the latest stable version of HydePHP.
 
 This strategy is great for simple projects that just contain basic pages and that don't require any additional dependencies.
 This documentation site, for example, is built using this strategy, and only contains a single `docs/index.md` file and a `hyde.yml` config file.
