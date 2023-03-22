@@ -1,6 +1,9 @@
 # Runs if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
 # With input: framework-version
 
+# Get version from CLI input
+version=$1
+
 # Copy all root files to backup directory
 cp -r . ../backup
 # Download latest version of HydePHP
@@ -13,6 +16,6 @@ rm _pages/index.blade.php _pages/404.blade.php
 cp -r ../backup/* .
 
 # If version is set to something other than latest, require that framework version
-if [[ "${{ inputs.framework-version }}" != "latest" ]]; then
-composer require hyde/framework:${{ inputs.framework-version }} --no-install
+if [[ "$version" != "latest" ]]; then
+composer require hyde/framework:$version --no-install
 fi
