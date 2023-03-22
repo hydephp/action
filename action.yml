@@ -47,11 +47,7 @@ runs:
   steps:
     - name: Validate input
       id: validate-input
-      run: |
-        if [[ "${{ inputs.deploy-to }}" != "artifact" ]] && [[ "${{ inputs.deploy-to }}" != "pages" ]]; then
-          echo "Invalid input for deploy-to: ${{ inputs.deploy-to }}"
-          exit 1
-        fi
+      run: bash src/validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Determine install strategy
