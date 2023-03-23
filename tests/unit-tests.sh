@@ -15,7 +15,11 @@ for test in tests/unit/*.sh; do
   else
     echo -e "\033[0;32mTest passed:\033[0m $test";
   fi
-  echo -e "\033[0;33m  $message\033[0m"
+
+  # If message is not empty, display it
+  if [ -n "$message" ]; then
+    echo -e "\033[0;33m  $message\033[0m"
+  fi
 done
 
 # Display time in milliseconds
