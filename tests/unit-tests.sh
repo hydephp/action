@@ -8,7 +8,7 @@ exit_code=0
 for test in tests/unit/*.sh; do
   echo "Running $test"
   if ! bash "$test"; then
-    echo "Test failed: $test"
+    echo -e "\033[0;31mTest failed:\033[0m $test";
     exit_code=1
   fi
 done
