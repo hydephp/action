@@ -1,4 +1,4 @@
-echo "Running unit tests"
+echo -e "\033[0;32mRunning unit tests!\033[0m\n"
 
 # Track time in milliseconds
 start=$(date +%s%3N)
