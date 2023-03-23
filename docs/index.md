@@ -173,7 +173,7 @@ Uploads the compiled site as an artifact. (In addition to the deployment method 
 
 ### `framework-version`
 
-Specifies the version of HydePHP to use. If not specified, the latest stable version will be used.
+Specifies the version of the HydePHP framework to use. If not specified, the latest stable version will be used.
 
 This is only used when the anonymous project strategy is used, (i.e. when the project does not contain a `composer.json` file in the root directory).
 
