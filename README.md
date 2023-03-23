@@ -22,6 +22,7 @@ The following example shows the most basic usage of the action. It will build th
 
 ```yaml
 name: Build HydePHP Site
+
 on: [push]
 
 jobs:
@@ -40,6 +41,7 @@ The following example shows how to deploy the site to GitHub Pages. The action w
 
 ```yaml
 name: Build and Deploy HydePHP Site
+
 on: [push]
 
 jobs:
