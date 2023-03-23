@@ -22,6 +22,8 @@ for test in tests/unit/*.sh; do
   fi
 done
 
+echo ""
+
 # Display time in milliseconds
 end=$(date +%s%3N)
 echo "Time: $((end - start))ms"
