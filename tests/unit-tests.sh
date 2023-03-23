@@ -18,7 +18,11 @@ for test in tests/unit/*.sh; do
 
   # If message is not empty, display it
   if [ -n "$message" ]; then
-    echo -e "\033[0;33m  $message\033[0m"
+    # If it's only a single line, indent it
+    if [ $(echo "$message" | wc -l) -eq 1 ]; then
+      message="  $message"
+    fi
+    echo -e "\033[0;33m$message\033[0m"
   fi
 done
 
