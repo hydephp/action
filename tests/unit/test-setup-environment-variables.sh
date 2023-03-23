@@ -10,6 +10,9 @@ test_copy_env_example() {
   # Create an example file
   echo "foo" > .env.example
 
+  # Make the script executable
+  chmod +x "$base_dir"/setup-environment-variables.sh
+
   # Call the script
   "$base_dir"/setup-environment-variables.sh
 
