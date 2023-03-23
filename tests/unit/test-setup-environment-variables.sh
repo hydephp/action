@@ -37,7 +37,3 @@ test_copy_env_example
 
 # Clean up
 cd "$base_dir" || exit
-
-# Exit with success code
-echo "Test passed"
-exit 0
