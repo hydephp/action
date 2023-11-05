@@ -60,6 +60,8 @@ jobs:
 
 Note that the GitHub token must have the proper permissions. You also need to configure your repository to use GitHub Pages using the Actions workflow.
 
+You can enable Pages by visiting the Pages section of your repository settings, and setting the build and deployment source to GitHub Actions.
+
 ### Configuration Options
 
 There are a few more configuration options available, that can be supplied to the action using the `with` keyword, as shown in the examples above.
