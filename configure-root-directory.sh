@@ -5,12 +5,6 @@
 directory=$1
 
 if [ "$directory" != "." ]; then
-  # Verify that the directory input exists.
-  if [ ! -d "$directory" ]; then
-    echo "Directory $directory does not exist."
-    exit 1
-  fi
-
   # Create a temporary directory outside of the current working directory.
   mkdir ../tmp
   # Copy the directory input files to the temporary directory.
