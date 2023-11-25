@@ -7,10 +7,10 @@ directory=$1
 if [ "$directory" != "." ]; then
   # Create a temporary directory outside of the current working directory.
   mkdir ../tmp
-  # Copy the directory input files to the temporary directory.
+  # Copy the directory input files recursively to the temporary directory.
   cp -r "$directory"/* ../tmp
   # Remove the current working directory files.
-  rm -rf *
+  rm -rf ./*
   # Copy the temporary directory files to the current working directory.
   cp -r ../tmp/* .
   # Remove the temporary directory.
