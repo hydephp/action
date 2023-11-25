@@ -27,6 +27,11 @@ inputs:
     required: false
     default: "latest"
 
+  directory:
+    description: 'The project root directory'
+    required: false
+    default: "."
+
   env-site-name:
     description: 'Set the `SITE_NAME` environment variable'
     required: false
