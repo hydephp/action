@@ -181,6 +181,14 @@ This is only used when the anonymous project strategy is used, (i.e. when the pr
 *   **Required**: `false`
 *   **Default**: `"latest"`
 
+### `directory`
+
+Specifies the directory containing the source files to build. This is useful if your source files are not located in the root directory of the repository.
+
+*   **Description**: Specify the directory containing the source files to build.
+*  **Required**: `false`
+*  **Default**: `"."`
+
 ### Environment variables
 
 >warning If your inputs contain sensitive information, you should use [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) to store them.
