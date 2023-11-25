@@ -51,24 +51,20 @@ runs:
   using: "composite"
   steps:
     - name: Add action path to GitHub PATH
-      working-directory: ${{ inputs.directory }}"
       run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
 
     - name: Validate input
-      working-directory: ${{ inputs.directory }}"
       id: validate-input
       run: bash validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Determine install strategy
-      working-directory: ${{ inputs.directory }}"
       id: determine-install-strategy
       run: bash determine-install-strategy.sh
       shell: bash
 
     - name: Print debug information
-      working-directory: ${{ inputs.directory }}"
       if: inputs.debug == 'true'
       run: |
         echo "Debug mode: ${{ inputs.debug }}"
@@ -78,13 +74,11 @@ runs:
       shell: bash
 
     - name: Validate composer.json and composer.lock
-      working-directory: ${{ inputs.directory }}"
       if: steps.determine-install-strategy.outputs.install-strategy == 'composer'
       run: composer validate --strict
       shell: bash
 
     - name: Cache Composer packages
-      working-directory: ${{ inputs.directory }}"
       id: composer-cache
       if: steps.determine-install-strategy.outputs.install-strategy == 'composer'
       uses: actions/cache@v3
@@ -95,18 +89,15 @@ runs:
           ${{ runner.os }}-php-
 
     - name: Download latest release
-      working-directory: ${{ inputs.directory }}"
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
       run: bash download-latest-release.sh ${{ inputs.framework-version }}
       shell: bash
 
     - name: Install dependencies
-      working-directory: ${{ inputs.directory }}"
       run: composer install --prefer-dist --no-progress --no-autoloader && composer dump-autoload --quiet
       shell: bash
 
     - name: Set up environment variables
-      working-directory: ${{ inputs.directory }}"
       run: bash setup-environment-variables.sh
       shell: bash
 
@@ -122,12 +113,10 @@ runs:
       shell: bash
 
     - name: Build the site
-      working-directory: ${{ inputs.directory }}"
       run: php hyde build --no-interaction --ansi
       shell: bash
 
     - name: Upload artifact
-      working-directory: ${{ inputs.directory }}"
       if: inputs.deploy-to == 'artifact' || inputs.upload-artifact == 'true'
       uses: actions/upload-artifact@v3
       with:
@@ -135,19 +124,16 @@ runs:
         path: _site # TODO: Get this from the config file in case it's customized
 
     - name: Setup Pages
-      working-directory: ${{ inputs.directory }}"
       if: inputs.deploy-to == 'pages'
       uses: actions/configure-pages@v3
 
     - name: Upload artifact
-      working-directory: ${{ inputs.directory }}"
       if: inputs.deploy-to == 'pages'
       uses: actions/upload-pages-artifact@v1
       with:
         path: _site # TODO: Get this from the config file in case it's customized
 
     - name: Deploy to GitHub Pages
-      working-directory: ${{ inputs.directory }}"
       id: pages-deployment
       if: inputs.deploy-to == 'pages'
       uses: actions/deploy-pages@v1
