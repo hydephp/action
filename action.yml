@@ -27,6 +27,11 @@ inputs:
     required: false
     default: "latest"
 
+  directory:
+    description: 'The project root directory'
+    required: false
+    default: "."
+
   env-site-name:
     description: 'Set the `SITE_NAME` environment variable'
     required: false
@@ -52,6 +57,11 @@ runs:
     - name: Validate input
       id: validate-input
       run: bash validate-input.sh ${{ inputs.deploy-to }}
+      shell: bash
+
+    - name: Configure root directory
+      id: configure-root-directory
+      run: bash configure-root-directory.sh ${{ inputs.directory }}
       shell: bash
 
     - name: Determine install strategy
