@@ -59,6 +59,24 @@ runs:
       run: bash validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
+    - name: Configure root directory
+      id: configure-root-directory
+      run: |
+        # If the directory input is not the root directory, we replace the current working directory files with the directory input files.
+        if [ "${{ inputs.directory }}" != "." ]; then
+          # Create a temporary directory outside of the current working directory.
+          mkdir ../tmp
+          # Copy the directory input files to the temporary directory.
+          cp -r ${{ inputs.directory }}/* ../tmp
+          # Remove the current working directory files.
+          rm -rf *
+          # Copy the temporary directory files to the current working directory.
+          cp -r ../tmp/* .
+          # Remove the temporary directory.
+          rm -rf ../tmp
+        fi
+      shell: bash
+
     - name: Determine install strategy
       id: determine-install-strategy
       run: bash determine-install-strategy.sh
