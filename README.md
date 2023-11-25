@@ -72,6 +72,7 @@ There are a few more configuration options available, that can be supplied to th
 | `upload-artifact`      | Upload the site artifact, regardless of the `deploy-to` option                                                                                                  | `false`       |
 | `debug`                | Enable additional debug output                                                                                                                                  | `false`       |
 | `framework-version`    | Specify the HydePHP Framework version to use<br><small>(only applicable for [anonymous projects](https://hydephp.github.io/action/#anonymous-projects))</small> | "latest"      |
+| `directory`            | The directory to use as the project root                                                                                                                        | none          |
 | `env-site-name`        | Set the `SITE_NAME` environment variable                                                                                                                        | _none_        |
 | `env-site-url`         | Set the `SITE_URL` environment variable                                                                                                                         | _none_        |
 | `env-torchlight-token` | Set the `TORCHLIGHT_TOKEN` environment variable                                                                                                                 | _none_        |
