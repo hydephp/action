@@ -13,6 +13,4 @@ if [ "$directory" != "." ]; then
   rm -rf ./*
   # Copy the temporary directory files to the current working directory.
   cp -r ../tmp/* .
-  # Remove the temporary directory.
-  rm -rf ../tmp
 fi
