@@ -186,8 +186,8 @@ This is only used when the anonymous project strategy is used, (i.e. when the pr
 Specifies the directory containing the source files to build. This is useful if your source files are not located in the root directory of the repository.
 
 *   **Description**: Specify the directory containing the source files to build.
-*  **Required**: `false`
-*  **Default**: `"."`
+*   **Required**: `false`
+*   **Default**: `"."`
 
 ### Environment variables
 
