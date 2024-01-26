@@ -189,6 +189,27 @@ Specifies the directory containing the source files to build. This is useful if 
 *   **Required**: `false`
 *   **Default**: `"."`
 
+### `config`
+
+You can also specify configuration options using the `config` input. The lines in this input will be appended to the `hyde.yml` file in the root directory, allowing you to configure many parts of the Hyde project before the build.
+
+*   **Description**: List of lines to add to the `hyde.yml` config file
+*   **Required**: `false`
+*   **Default**: `""`
+
+Example:
+
+```yaml
+- uses: hydephp/action@config-array
+  with:
+    config: |
+      # Enter key-value Yaml here:
+      name: Example
+      url: ${{ github.deployment.url }}
+```
+
+See the [HydePHP documentation](https://hydephp.com/docs/1.x/customization#yaml-configuration) for more information on the available configuration options and how to use the `hyde.yml` file.
+
 ### Environment variables
 
 >warning If your inputs contain sensitive information, you should use [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) to store them.

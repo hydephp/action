@@ -32,6 +32,11 @@ inputs:
     required: false
     default: "."
 
+  config:
+    description: 'List of lines to add to the `hyde.yml` config file'
+    required: false
+    default: ""
+
   env-site-name:
     description: 'Set the `SITE_NAME` environment variable'
     required: false
@@ -115,6 +120,11 @@ runs:
       shell: bash
     - if: inputs.env-torchlight-token != ''
       run: echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
+      shell: bash
+
+    - name: Set up configuration
+      if: inputs.config != ''
+      run: echo "${{ inputs.config }}" >> hyde.yml
       shell: bash
 
     - name: Build the site
