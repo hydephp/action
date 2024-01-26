@@ -122,6 +122,11 @@ runs:
       run: echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
       shell: bash
 
+    - name: Set up configuration
+      if: inputs.config != ''
+      run: echo "${{ inputs.config }}" >> hyde.yml
+      shell: bash
+
     - name: Build the site
       run: php hyde build --no-interaction --ansi
       shell: bash
