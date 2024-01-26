@@ -9,4 +9,4 @@ hyde:
   pretty_urls: true
 docs:
   sidebar:
-    footer: '[https://github.com/hydephp/action](GitHub Source Code)'
+    footer: '<a href="https://github.com/hydephp/action">GitHub Source Code</a>'
