@@ -32,6 +32,11 @@ inputs:
     required: false
     default: "."
 
+  config:
+    description: 'List of lines to add to the `hyde.yml` config file'
+    required: false
+    default: ""
+
   env-site-name:
     description: 'Set the `SITE_NAME` environment variable'
     required: false
