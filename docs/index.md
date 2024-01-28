@@ -40,7 +40,7 @@ jobs:
 ### Deployment options
 
 This action not only builds your site, but it can also deploy it for you. Here are the various
-deployment options supported by the action:
+deployment options supported by the action.
 
 ### Artifact upload
 
@@ -65,9 +65,8 @@ You can also enable artifact uploading in addition to another deployment method 
 
 ### GitHub Pages (Direct deployment)
 
->warning This method depends on [`actions/deploy-pages`](https://github.com/actions/deploy-pages), which is currently in public beta.
 
-You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy-to` input to "pages".
+You can also deploy the compiled site directly to GitHub Pages, by setting the `deploy-to` input to "pages". This uses the official [`actions/deploy-pages`](https://github.com/actions/deploy-pages) action.
 
 ```yaml
 - uses: hydephp/action@master
@@ -75,7 +74,7 @@ You can also deploy the compiled site directly to GitHub Pages, by setting the `
     deploy-to: "pages"
 ```
 
-You also need to make sure that your GitHub Pages source is set to "GitHub Actions" and that the `GITHUB_TOKEN` has the `id-token: write` and `pages: write` permissions.
+Please make sure that the `GITHUB_TOKEN` has the `id-token: write` and `pages: write` permissions.
 
 You can set the permissions using the following code, added to the `jobs.<job_id>.permissions` section of your workflow file:
 
@@ -87,6 +86,10 @@ build:
     pages: write
     id-token: write
 ```
+
+You also need to make sure that your GitHub Pages source is set to "GitHub Actions". Simply follow the steps in the image below.
+
+![1: Visit the settings tab of your repository. 2: Click on the "Pages" tab in the sidebar. 3: Under "Build and deployment", select "GitHub Actions" from the "Source" dropdown.](https://github.com/hydephp/action/assets/95144705/73c8b5ac-b26b-4763-b29b-ad118c1ea6a7)
 
 ## Supported repository structures
 
