@@ -80,4 +80,4 @@ There are a few more configuration options available, that can be supplied to th
 
 ## Further documentation
 
-See the live documentation, build with this action, through this repository, at [hydephp.github.io/action](https://hydephp.github.io/action/).
+See the live documentation, built with this action and through this repository, at [hydephp.github.io/action](https://hydephp.github.io/action/).
