@@ -91,7 +91,7 @@ runs:
     - name: Cache Composer packages
       id: composer-cache
       if: steps.determine-install-strategy.outputs.install-strategy == 'composer'
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
