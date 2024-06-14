@@ -9,7 +9,7 @@ jobs:
   test-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: hydephp/action@master
         with:
           debug: true
@@ -25,7 +25,7 @@ jobs:
       name: github-pages
       url: https://hydephp.github.io/action
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: hydephp/action@master
         with:
           deploy-to: pages
