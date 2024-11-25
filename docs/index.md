@@ -230,17 +230,15 @@ Sets the `TORCHLIGHT_TOKEN` environment variable
 
 #### `env`
 
-You can set arbitrary environment variables using the `env` input. This accepts a JSON object where each key-value pair will be added to the `.env` file:
+You can set arbitrary environment variables using the `env` input. Simply provide each variable in KEY=VALUE format, one per line:
 
 ```yaml
 - uses: hydephp/action@master
   with:
     deploy-to: "pages"
     env: |
-      {
-        "FOO": "bar",
-        "CUSTOM_VAR": "value"
-      }
+      CUSTOM_VAR=value
+      DEPLOY_SHA=${{ github.sha }}
 ```
 
 The environment variables will be available during the build process. Note that if you're using sensitive information, you should use GitHub Secrets instead of hardcoding the values.

@@ -8,8 +8,8 @@ test_set_environment_variables() {
   cd "$temp_dir" || exit
   
   # Test case 1: Basic key-value pairs
-  json='{"FOO":"bar","TEST":"value"}'
-  "$base_dir"/set-environment-variables.sh "$json"
+  env_vars=$'FOO=bar\nTEST=value'
+  "$base_dir"/set-environment-variables.sh "$env_vars"
   
   if ! grep -q "FOO=bar" .env || ! grep -q "TEST=value" .env; then
     echo "Test 1 failed: Basic key-value pairs not set correctly"
@@ -20,8 +20,8 @@ test_set_environment_variables() {
   rm .env
   
   # Test case 2: Empty input
-  json='{}'
-  "$base_dir"/set-environment-variables.sh "$json"
+  env_vars=""
+  "$base_dir"/set-environment-variables.sh "$env_vars"
   
   if [ -f .env ]; then
     echo "Test 2 failed: .env file should not be created for empty input"

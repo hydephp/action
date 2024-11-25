@@ -48,9 +48,9 @@ inputs:
     required: false
 
   env:
-    description: 'JSON string of environment variables to set'
+    description: 'Environment variables in KEY=VALUE format (one per line)'
     required: false
-    default: '{}'
+    default: ''
 
 outputs:
   install-strategy:
@@ -168,6 +168,6 @@ runs:
     # We could also upload the site as an artifact for later use.
 
     - name: Set custom environment variables
-      if: inputs.env != '{}'
+      if: inputs.env != ''
       run: bash set-environment-variables.sh '${{ inputs.env }}'
       shell: bash
