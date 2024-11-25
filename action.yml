@@ -67,17 +67,17 @@ runs:
 
     - name: Validate input
       id: validate-input
-      run: bash src/validate-input.sh ${{ inputs.deploy-to }}
+      run: bash validate-input.sh ${{ inputs.deploy-to }}
       shell: bash
 
     - name: Configure root directory
       id: configure-root-directory
-      run: bash src/configure-root-directory.sh ${{ inputs.directory }}
+      run: bash configure-root-directory.sh ${{ inputs.directory }}
       shell: bash
 
     - name: Determine install strategy
       id: determine-install-strategy
-      run: bash src/determine-install-strategy.sh
+      run: bash determine-install-strategy.sh
       shell: bash
 
     - name: Print debug information
@@ -106,7 +106,7 @@ runs:
 
     - name: Download latest release
       if: steps.determine-install-strategy.outputs.install-strategy == 'archive'
-      run: bash src/download-latest-release.sh ${{ inputs.framework-version }}
+      run: bash download-latest-release.sh ${{ inputs.framework-version }}
       shell: bash
 
     - name: Install dependencies
@@ -114,29 +114,29 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: bash src/setup-environment-variables.sh
+      run: bash setup-environment-variables.sh
       shell: bash
 
     # Inject environment variables
     - if: inputs.env-site-name != ''
       run: |
-        bash src/print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value" "$GITHUB_WORKFLOW"
+        bash print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value" "$GITHUB_WORKFLOW"
         echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
       shell: bash
     - if: inputs.env-site-url != ''
       run: |
-        bash src/print-deprecation-warning.sh "env-site-url" "env: SITE_URL=value" "$GITHUB_WORKFLOW"
+        bash print-deprecation-warning.sh "env-site-url" "env: SITE_URL=value" "$GITHUB_WORKFLOW"
         echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
       shell: bash
     - if: inputs.env-torchlight-token != ''
       run: |
-        bash src/print-deprecation-warning.sh "env-torchlight-token" "env: TORCHLIGHT_TOKEN=value" "$GITHUB_WORKFLOW"
+        bash print-deprecation-warning.sh "env-torchlight-token" "env: TORCHLIGHT_TOKEN=value" "$GITHUB_WORKFLOW"
         echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
       shell: bash
 
     - name: Set custom environment variables
       if: inputs.env != ''
-      run: bash src/set-environment-variables.sh '${{ inputs.env }}'
+      run: bash set-environment-variables.sh '${{ inputs.env }}'
       shell: bash
 
     - name: Set up configuration
