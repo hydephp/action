@@ -47,6 +47,11 @@ inputs:
     description: 'Set the `TORCHLIGHT_TOKEN` environment variable'
     required: false
 
+  env:
+    description: 'JSON string of environment variables to set'
+    required: false
+    default: '{}'
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
