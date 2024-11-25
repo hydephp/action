@@ -120,17 +120,17 @@ runs:
     # Inject environment variables
     - if: inputs.env-site-name != ''
       run: |
-        bash print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value"
+        bash print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value" "$GITHUB_WORKFLOW"
         echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
       shell: bash
     - if: inputs.env-site-url != ''
       run: |
-        bash print-deprecation-warning.sh "env-site-url" "env: SITE_URL=value"
+        bash print-deprecation-warning.sh "env-site-url" "env: SITE_URL=value" "$GITHUB_WORKFLOW"
         echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
       shell: bash
     - if: inputs.env-torchlight-token != ''
       run: |
-        bash print-deprecation-warning.sh "env-torchlight-token" "env: TORCHLIGHT_TOKEN=value"
+        bash print-deprecation-warning.sh "env-torchlight-token" "env: TORCHLIGHT_TOKEN=value" "$GITHUB_WORKFLOW"
         echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
       shell: bash
 
