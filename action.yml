@@ -38,13 +38,13 @@ inputs:
     default: ""
 
   env-site-name:
-    description: 'Set the `SITE_NAME` environment variable'
+    description: '[Deprecated] Set the `SITE_NAME` environment variable. Use the `env` input instead with `SITE_NAME=value`'
     required: false
   env-site-url:
-    description: 'Set the `SITE_URL` environment variable'
+    description: '[Deprecated] Set the `SITE_URL` environment variable. Use the `env` input instead with `SITE_URL=value`'
     required: false
   env-torchlight-token:
-    description: 'Set the `TORCHLIGHT_TOKEN` environment variable'
+    description: '[Deprecated] Set the `TORCHLIGHT_TOKEN` environment variable. Use the `env` input instead with `TORCHLIGHT_TOKEN=value`'
     required: false
 
   env:

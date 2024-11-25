@@ -220,12 +220,21 @@ See the [HydePHP documentation](https://hydephp.com/docs/1.x/customization#yaml-
 You can also pass set the following inputs to be passed as environment variables for the build process:
 
 #### `env-site-name`
+> [!WARNING]  
+> Deprecated: Use the `env` input instead with `SITE_NAME=value`
+
 Sets the `SITE_NAME` environment variable
 
 #### `env-site-url`
+> [!WARNING]  
+> Deprecated: Use the `env` input instead with `SITE_URL=value`
+
 Sets the `SITE_URL` environment variable
 
 #### `env-torchlight-token`
+> [!WARNING]  
+> Deprecated: Use the `env` input instead with `TORCHLIGHT_TOKEN=value`
+
 Sets the `TORCHLIGHT_TOKEN` environment variable
 
 #### `env`
