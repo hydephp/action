@@ -241,4 +241,4 @@ You can set arbitrary environment variables using the `env` input. Simply provid
       DEPLOY_SHA=${{ github.sha }}
 ```
 
-The environment variables will be available during the build process. Note that if you're using sensitive information, you should use GitHub Secrets instead of hardcoding the values.
+The environment variables will be available during the build process. Note that if you're using sensitive information, you should use GitHub Secrets instead of hardcoding the values. Also make sure your input is valid "dotenv" syntax.
