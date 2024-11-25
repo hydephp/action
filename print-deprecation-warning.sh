@@ -7,4 +7,4 @@ old_input=$1
 new_input=$2
 workflow_file=$3
 
-echo "::warning file=$workflow_file,title=Deprecation Notice::The '$old_input' input is deprecated and will be removed in \`hydephp/action\` v2.0. Please use '$new_input' instead. See https://github.com/hydephp/action/pull/46"
+echo "::warning file=$workflow_file,title=Deprecation Notice::The '$old_input' input is deprecated and will be removed in \`hydephp/action\` v2.0. Please use '$new_input' instead. See https://github.com/hydephp/action/pull/46 for more information."
