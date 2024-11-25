@@ -217,17 +217,6 @@ See the [HydePHP documentation](https://hydephp.com/docs/1.x/customization#yaml-
 
 >warning If your inputs contain sensitive information, you should use [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) to store them.
 
-You can also pass set the following inputs to be passed as environment variables for the build process:
-
-#### `env-site-name`
-Sets the `SITE_NAME` environment variable
-
-#### `env-site-url`
-Sets the `SITE_URL` environment variable
-
-#### `env-torchlight-token`
-Sets the `TORCHLIGHT_TOKEN` environment variable
-
 #### `env`
 
 You can set arbitrary environment variables using the `env` input. Simply provide each variable in KEY=VALUE format, one per line:
@@ -237,8 +226,31 @@ You can set arbitrary environment variables using the `env` input. Simply provid
   with:
     deploy-to: "pages"
     env: |
-      CUSTOM_VAR=value
-      DEPLOY_SHA=${{ github.sha }}
+      SITE_NAME=My Site
+      SITE_URL=https://example.com
+      TORCHLIGHT_TOKEN=${{ secrets.TORCHLIGHT_TOKEN }}
 ```
 
 The environment variables will be available during the build process. Note that if you're using sensitive information, you should use GitHub Secrets instead of hardcoding the values. Also make sure your input is valid "dotenv" syntax.
+
+### Deprecated inputs
+
+You can also pass set the following inputs to be passed as environment variables for the build process:
+
+#### `env-site-name`
+> [!WARNING]  
+> Deprecated: Use the `env` input instead with `SITE_NAME=value`
+
+Sets the `SITE_NAME` environment variable
+
+#### `env-site-url`
+> [!WARNING]  
+> Deprecated: Use the `env` input instead with `SITE_URL=value`
+
+Sets the `SITE_URL` environment variable
+
+#### `env-torchlight-token`
+> [!WARNING]  
+> Deprecated: Use the `env` input instead with `TORCHLIGHT_TOKEN=value`
+
+Sets the `TORCHLIGHT_TOKEN` environment variable

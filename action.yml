@@ -37,14 +37,15 @@ inputs:
     required: false
     default: ""
 
+  # The following three inputs are deprecated and will be removed in v2.0. They are kept in v1.x for backward compatibility, but users are encouraged to migrate to the new `env` input.
   env-site-name:
-    description: 'Set the `SITE_NAME` environment variable'
+    description: '[Deprecated] Set the `SITE_NAME` environment variable. Use the `env` input instead with `SITE_NAME=value`'
     required: false
   env-site-url:
-    description: 'Set the `SITE_URL` environment variable'
+    description: '[Deprecated] Set the `SITE_URL` environment variable. Use the `env` input instead with `SITE_URL=value`'
     required: false
   env-torchlight-token:
-    description: 'Set the `TORCHLIGHT_TOKEN` environment variable'
+    description: '[Deprecated] Set the `TORCHLIGHT_TOKEN` environment variable. Use the `env` input instead with `TORCHLIGHT_TOKEN=value`'
     required: false
 
   env:
@@ -118,13 +119,19 @@ runs:
 
     # Inject environment variables
     - if: inputs.env-site-name != ''
-      run: echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
+      run: |
+        bash print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value" "$GITHUB_WORKFLOW"
+        echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
       shell: bash
     - if: inputs.env-site-url != ''
-      run: echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
+      run: |
+        bash print-deprecation-warning.sh "env-site-url" "env: SITE_URL=value" "$GITHUB_WORKFLOW"
+        echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
       shell: bash
     - if: inputs.env-torchlight-token != ''
-      run: echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
+      run: |
+        bash print-deprecation-warning.sh "env-torchlight-token" "env: TORCHLIGHT_TOKEN=value" "$GITHUB_WORKFLOW"
+        echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
       shell: bash
 
     - name: Set custom environment variables
