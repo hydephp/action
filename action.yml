@@ -62,7 +62,7 @@ runs:
   using: "composite"
   steps:
     - name: Add action path to GitHub PATH
-      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      run: echo "${{ github.action_path }}/src" >> $GITHUB_PATH
       shell: bash
 
     - name: Validate input
