@@ -114,7 +114,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: bash setup-environment-variables.sh
+      run: bash copy-example-environment.sh
       shell: bash
 
     # Inject environment variables
