@@ -74,9 +74,7 @@ There are a few more configuration options available, that can be supplied to th
 | `framework-version`    | Specify the HydePHP Framework version to use<br><small>(only applicable for [anonymous projects](https://hydephp.github.io/action/#anonymous-projects))</small> | "latest"      |
 | `directory`            | The directory to use as the project root                                                                                                                        | none          |
 | `config`               | String of lines to add to the `hyde.yml` config file                                                                                                            | none          |
-| `env-site-name`        | Set the `SITE_NAME` environment variable                                                                                                                        | _none_        |
-| `env-site-url`         | Set the `SITE_URL` environment variable                                                                                                                         | _none_        |
-| `env-torchlight-token` | Set the `TORCHLIGHT_TOKEN` environment variable                                                                                                                 | _none_        |
+| `env`                  | List of environment variables to set in the format `NAME=value`                                                                                                 | _none_        |
 
 ## Further documentation
 
