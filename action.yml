@@ -37,6 +37,7 @@ inputs:
     required: false
     default: ""
 
+  # The following three inputs are deprecated and will be removed in v2.0. They are kept in v1.x for backward compatibility, but users are encouraged to migrate to the new `env` input.
   env-site-name:
     description: '[Deprecated] Set the `SITE_NAME` environment variable. Use the `env` input instead with `SITE_NAME=value`'
     required: false
