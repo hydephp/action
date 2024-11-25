@@ -119,13 +119,19 @@ runs:
 
     # Inject environment variables
     - if: inputs.env-site-name != ''
-      run: echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
+      run: |
+        bash print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value"
+        echo "SITE_NAME=${{ inputs.env-site-name }}" >> .env
       shell: bash
     - if: inputs.env-site-url != ''
-      run: echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
+      run: |
+        bash print-deprecation-warning.sh "env-site-url" "env: SITE_URL=value"
+        echo "SITE_URL=${{ inputs.env-site-url }}" >> .env
       shell: bash
     - if: inputs.env-torchlight-token != ''
-      run: echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
+      run: |
+        bash print-deprecation-warning.sh "env-torchlight-token" "env: TORCHLIGHT_TOKEN=value"
+        echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
       shell: bash
 
     - name: Set custom environment variables
