@@ -9,7 +9,7 @@ test_set_environment_variables() {
   
   # Test case 1: Basic key-value pairs
   env_vars=$'FOO=bar\nTEST=value'
-  "$base_dir"/set-environment-variables.sh "$env_vars"
+  "$base_dir"/src/set-environment-variables.sh "$env_vars"
   
   if ! grep -q "FOO=bar" .env || ! grep -q "TEST=value" .env; then
     echo "Test 1 failed: Basic key-value pairs not set correctly"
@@ -21,7 +21,7 @@ test_set_environment_variables() {
   
   # Test case 2: Empty input
   env_vars=""
-  "$base_dir"/set-environment-variables.sh "$env_vars"
+  "$base_dir"/src/set-environment-variables.sh "$env_vars"
   
   if [ -f .env ]; then
     echo "Test 2 failed: .env file should not be created for empty input"

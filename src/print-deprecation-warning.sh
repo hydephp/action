@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Usage: print-deprecation-warning.sh "old_input" "new_input" "workflow_file"
-# Example: print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value" ".github/workflows/build.yml"
+# Usage: src/print-deprecation-warning.sh "old_input" "new_input" "workflow_file"
+# Example: src/print-deprecation-warning.sh "env-site-name" "env: SITE_NAME=value" ".github/workflows/build.yml"
 
 old_input=$1
 new_input=$2

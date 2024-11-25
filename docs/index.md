@@ -238,19 +238,19 @@ The environment variables will be available during the build process. Note that 
 You can also pass set the following inputs to be passed as environment variables for the build process:
 
 #### `env-site-name`
-> [!WARNING]  
+> [!WARNING]
 > Deprecated: Use the `env` input instead with `SITE_NAME=value`
 
 Sets the `SITE_NAME` environment variable
 
 #### `env-site-url`
-> [!WARNING]  
+> [!WARNING]
 > Deprecated: Use the `env` input instead with `SITE_URL=value`
 
 Sets the `SITE_URL` environment variable
 
 #### `env-torchlight-token`
-> [!WARNING]  
+> [!WARNING]
 > Deprecated: Use the `env` input instead with `TORCHLIGHT_TOKEN=value`
 
 Sets the `TORCHLIGHT_TOKEN` environment variable

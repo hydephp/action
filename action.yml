@@ -62,7 +62,7 @@ runs:
   using: "composite"
   steps:
     - name: Add action path to GitHub PATH
-      run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      run: echo "${{ github.action_path }}/src" >> $GITHUB_PATH
       shell: bash
 
     - name: Validate input
@@ -114,7 +114,7 @@ runs:
       shell: bash
 
     - name: Set up environment variables
-      run: bash setup-environment-variables.sh
+      run: bash copy-example-environment.sh
       shell: bash
 
     # Inject environment variables

@@ -9,8 +9,8 @@ test_composer_strategy() {
   touch "$GITHUB_OUTPUT"
   export GITHUB_OUTPUT;
 
-  chmod +x "$base_dir"/determine-install-strategy.sh
-  "$base_dir"/determine-install-strategy.sh
+  chmod +x "$base_dir"/src/determine-install-strategy.sh
+  "$base_dir"/src/determine-install-strategy.sh
 
   # Assert that the expected string is written to the output file
   grep -q "install-strategy=composer" "$GITHUB_OUTPUT"
@@ -27,8 +27,8 @@ test_archive_strategy() {
   touch "$GITHUB_OUTPUT"
   export GITHUB_OUTPUT;
 
-  chmod +x "$base_dir"/determine-install-strategy.sh
-  "$base_dir"/determine-install-strategy.sh
+  chmod +x "$base_dir"/src/determine-install-strategy.sh
+  "$base_dir"/src/determine-install-strategy.sh
 
   # Assert that the expected string is written to the output file
   grep -q "install-strategy=archive" "$GITHUB_OUTPUT"
