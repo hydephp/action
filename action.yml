@@ -47,6 +47,11 @@ inputs:
     description: 'Set the `TORCHLIGHT_TOKEN` environment variable'
     required: false
 
+  env:
+    description: 'Environment variables in KEY=VALUE format (one per line)'
+    required: false
+    default: ''
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
@@ -120,6 +125,11 @@ runs:
       shell: bash
     - if: inputs.env-torchlight-token != ''
       run: echo "TORCHLIGHT_TOKEN=${{ inputs.env-torchlight-token }}" >> .env
+      shell: bash
+
+    - name: Set custom environment variables
+      if: inputs.env != ''
+      run: bash set-environment-variables.sh '${{ inputs.env }}'
       shell: bash
 
     - name: Set up configuration

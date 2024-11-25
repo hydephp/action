@@ -227,3 +227,18 @@ Sets the `SITE_URL` environment variable
 
 #### `env-torchlight-token`
 Sets the `TORCHLIGHT_TOKEN` environment variable
+
+#### `env`
+
+You can set arbitrary environment variables using the `env` input. Simply provide each variable in KEY=VALUE format, one per line:
+
+```yaml
+- uses: hydephp/action@master
+  with:
+    deploy-to: "pages"
+    env: |
+      CUSTOM_VAR=value
+      DEPLOY_SHA=${{ github.sha }}
+```
+
+The environment variables will be available during the build process. Note that if you're using sensitive information, you should use GitHub Secrets instead of hardcoding the values. Also make sure your input is valid "dotenv" syntax.
