@@ -24,7 +24,7 @@ check_site_url() {
             if ! grep -q "'url' => env('SITE_URL', 'http://localhost')," config/hyde.php; then
                 return 0
             fi
-            echo "::warning file=config/hyde.php,line=$line_number,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL."
+            echo "::warning file=config/hyde.php,line=$line_number,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL here or in using the 'env' input with 'SITE_URL=https://example.com'"
             return 0
         fi
     fi

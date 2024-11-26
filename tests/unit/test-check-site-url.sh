@@ -50,7 +50,7 @@ test_site_url_warnings() {
     # Test case 4: SITE_URL in config but with localhost
     echo "'url' => env('SITE_URL', 'http://localhost')," > config/hyde.php
     output=$(bash "$base_dir/src/check-site-url.sh")
-    expected="::warning file=config/hyde.php,line=1,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL."
+    expected="::warning file=config/hyde.php,line=1,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL here or in using the 'env' input with 'SITE_URL=https://example.com'"
     
     if [[ "$output" != "$expected" ]]; then
         echo "Test 4 failed: Warning not shown when SITE_URL is localhost"
