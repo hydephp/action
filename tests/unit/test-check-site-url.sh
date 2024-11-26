@@ -8,7 +8,7 @@ test_site_url_warnings() {
     # Test case 1: No SITE_URL set anywhere
     touch .env
     output=$(bash "$base_dir/src/check-site-url.sh")
-    expected="::warning::No SITE_URL environment variable found. It's recommended to set a production URL for your site. You can set it using the 'env' input with 'SITE_URL=https://example.com'"
+    expected="::warning title=Missing Site URL::No SITE_URL environment variable found. It's recommended to set a production URL for your site. You can set it using the 'env' input with 'SITE_URL=https://example.com'"
     
     if [[ "$output" != "$expected" ]]; then
         echo "Test 1 failed: Warning not shown when SITE_URL is missing"
@@ -50,6 +50,7 @@ test_site_url_warnings() {
     # Test case 4: SITE_URL in config but with localhost
     echo "'url' => env('SITE_URL', 'http://localhost')," > config/hyde.php
     output=$(bash "$base_dir/src/check-site-url.sh")
+    expected="::warning file=config/hyde.php,line=1,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL."
     
     if [[ "$output" != "$expected" ]]; then
         echo "Test 4 failed: Warning not shown when SITE_URL is localhost"

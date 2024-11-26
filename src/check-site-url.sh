@@ -19,16 +19,19 @@ check_site_url() {
     # If config/hyde.php exists, check if it has a non-localhost URL
     if [ -f "config/hyde.php" ]; then
         # Look for url configuration line and exclude localhost
-        if grep -q "'url' => env('SITE_URL'," config/hyde.php && \
-           ! grep -q "'url' => env('SITE_URL', 'http://localhost')," config/hyde.php; then
-            return 0
+        if grep -q "'url' => env('SITE_URL'," config/hyde.php; then
+            line_number=$(grep -n "'url' => env('SITE_URL'," config/hyde.php | cut -d: -f1)
+            if ! grep -q "'url' => env('SITE_URL', 'http://localhost')," config/hyde.php; then
+                return 0
+            fi
+            echo "::warning file=config/hyde.php,line=$line_number,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL."
+            return 1
         fi
     fi
 
+    echo "::warning title=Missing Site URL::No SITE_URL environment variable found. It's recommended to set a production URL for your site. You can set it using the 'env' input with 'SITE_URL=https://example.com'"
     return 1
 }
 
 # Show warning if SITE_URL is not properly set
-if ! check_site_url; then
-    echo "::warning::No SITE_URL environment variable found. It's recommended to set a production URL for your site. You can set it using the 'env' input with 'SITE_URL=https://example.com'"
-fi
+check_site_url
