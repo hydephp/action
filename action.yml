@@ -144,6 +144,10 @@ runs:
       run: echo "${{ inputs.config }}" >> hyde.yml
       shell: bash
 
+    - name: Check site URL configuration
+      run: bash check-site-url.sh
+      shell: bash
+
     # TODO: Add pre-build hook to run some bash commands?
 
     - name: Build the site

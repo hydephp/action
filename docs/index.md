@@ -254,3 +254,11 @@ Sets the `SITE_URL` environment variable
 > Deprecated: Use the `env` input instead with `TORCHLIGHT_TOKEN=value`
 
 Sets the `TORCHLIGHT_TOKEN` environment variable
+
+### Site URLs
+
+It's highly recommended to set the site URL for your project so that sitemaps and meta tags are generated correctly.
+
+You can do this by setting the `SITE_URL` environment variable, or by adding the `url` key to your `hyde.yml` file or `config/hyde.php` file.
+
+If the site URL is not set, the action will output a warning and suggest a solution. An easy way to set the site URL is to use the `env` input as seen above.
