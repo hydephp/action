@@ -16,6 +16,15 @@ check_site_url() {
         fi
     fi
 
+    # Check for hyde.yml or hyde.yaml with any url setting
+    if [ -f "hyde.yml" ] && grep -q "^[[:space:]]*url:" hyde.yml; then
+        return 0
+    fi
+    
+    if [ -f "hyde.yaml" ] && grep -q "^[[:space:]]*url:" hyde.yaml; then
+        return 0
+    fi
+
     return 1
 }
 

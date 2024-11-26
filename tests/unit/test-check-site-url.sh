@@ -60,6 +60,34 @@ test_site_url_warnings() {
         exit 1
     fi
 
+    # Test case 5: URL set in hyde.yml
+    rm config/hyde.php
+    echo "url: http://localhost" > hyde.yml
+    output=$(bash "$base_dir/src/check-site-url.sh")
+    
+    if [[ -n "$output" ]]; then
+        echo "Test 5 failed: Warning shown when URL is set in hyde.yml"
+        echo "Expected empty output"
+        echo "Got: $output"
+        cd "$base_dir"
+        rm -rf "$temp_dir"
+        exit 1
+    fi
+
+    # Test case 6: URL set in hyde.yaml with indentation
+    rm hyde.yml
+    echo "    url: example.com" > hyde.yaml
+    output=$(bash "$base_dir/src/check-site-url.sh")
+    
+    if [[ -n "$output" ]]; then
+        echo "Test 6 failed: Warning shown when URL is set in hyde.yaml"
+        echo "Expected empty output"
+        echo "Got: $output"
+        cd "$base_dir"
+        rm -rf "$temp_dir"
+        exit 1
+    fi
+
     cd "$base_dir"
     rm -rf "$temp_dir"
 }
