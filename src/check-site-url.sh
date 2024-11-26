@@ -7,15 +7,6 @@ check_site_url() {
         return 0
     fi
 
-    # If config/hyde.php exists, check if it has a non-localhost URL
-    if [ -f "config/hyde.php" ]; then
-        # Look for url configuration line and exclude localhost
-        if grep -q "'url' => env('SITE_URL'," config/hyde.php && \
-           ! grep -q "'url' => env('SITE_URL', 'http://localhost')," config/hyde.php; then
-            return 0
-        fi
-    fi
-
     # Check for hyde.yml or hyde.yaml with any url setting
     if [ -f "hyde.yml" ] && grep -q "^[[:space:]]*url:" hyde.yml; then
         return 0
@@ -23,6 +14,15 @@ check_site_url() {
     
     if [ -f "hyde.yaml" ] && grep -q "^[[:space:]]*url:" hyde.yaml; then
         return 0
+    fi
+
+    # If config/hyde.php exists, check if it has a non-localhost URL
+    if [ -f "config/hyde.php" ]; then
+        # Look for url configuration line and exclude localhost
+        if grep -q "'url' => env('SITE_URL'," config/hyde.php && \
+           ! grep -q "'url' => env('SITE_URL', 'http://localhost')," config/hyde.php; then
+            return 0
+        fi
     fi
 
     return 1
