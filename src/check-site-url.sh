@@ -25,12 +25,12 @@ check_site_url() {
                 return 0
             fi
             echo "::warning file=config/hyde.php,line=$line_number,title=Missing Site URL::The site URL is set to localhost in your configuration file. Consider setting a production URL."
-            return 1
+            return 0
         fi
     fi
 
     echo "::warning title=Missing Site URL::No SITE_URL environment variable found. It's recommended to set a production URL for your site. You can set it using the 'env' input with 'SITE_URL=https://example.com'"
-    return 1
+    return 0
 }
 
 # Show warning if SITE_URL is not properly set
