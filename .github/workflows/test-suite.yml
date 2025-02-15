@@ -45,6 +45,7 @@ jobs:
         with:
           debug: true
 
+
   run-workflow-test-3:
     runs-on: ubuntu-latest
     steps:
@@ -54,6 +55,8 @@ jobs:
         uses: ./
         with:
           deploy-to: artifact
+          artifact-name: "workflow-test-3-build"
+
 
   run-workflow-test-4:
     runs-on: ubuntu-latest
