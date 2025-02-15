@@ -22,6 +22,7 @@ jobs:
           debug: true
           upload-artifact: true
           deploy-to: "pages"
+          artifact-name: "test-project-2-build"
 
       - uses: actions/download-artifact@v3
         with:

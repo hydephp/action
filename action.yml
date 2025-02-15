@@ -53,6 +53,11 @@ inputs:
     required: false
     default: ''
 
+  artifact-name:
+    description: 'Name of the artifact to upload (defaults to "build")'
+    required: false
+    default: "build"
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
@@ -160,7 +165,7 @@ runs:
       if: inputs.deploy-to == 'artifact' || inputs.upload-artifact == 'true'
       uses: actions/upload-artifact@v4
       with:
-        name: build
+        name: ${{ inputs.artifact-name }}
         path: _site # TODO: Get this from the config file in case it's customized
 
     - name: Setup Pages

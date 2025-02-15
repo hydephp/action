@@ -17,6 +17,7 @@ jobs:
         with:
           debug: true
           upload-artifact: true
+          artifact-name: "test-project-1-build"
 
       - uses: actions/download-artifact@v3
         with:
