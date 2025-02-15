@@ -44,6 +44,7 @@ jobs:
         uses: ./
         with:
           debug: true
+          artifact-name: "workflow-test-2-build"
 
 
   run-workflow-test-3:
@@ -70,6 +71,9 @@ jobs:
 
       - name: Run workflow test 4
         uses: ./
+        with:
+          artifact-name: "workflow-test-4-build"
+
 
   integration-tests:
     runs-on: ubuntu-latest
