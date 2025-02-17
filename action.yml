@@ -159,6 +159,11 @@ runs:
       run: php hyde build --no-interaction --ansi
       shell: bash
 
+    - name: Build the RSS feed
+      if: inputs.rss == 'true'
+      run: php hyde build:rss --no-interaction --ansi
+      shell: bash
+
     # TODO: Add post-build hook to run some bash commands?
 
     - name: Upload artifact

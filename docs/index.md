@@ -233,6 +233,15 @@ You can set arbitrary environment variables using the `env` input. Simply provid
 
 The environment variables will be available during the build process. Note that if you're using sensitive information, you should use GitHub Secrets instead of hardcoding the values. Also make sure your input is valid "dotenv" syntax.
 
+### `rss`
+
+Enables build of the RSS feed.
+
+*   **Description**: Enable build of RSS.
+*   **Required**: `false`
+*   **Default**: `"false"`
+
+
 ### Deprecated inputs
 
 You can also pass set the following inputs to be passed as environment variables for the build process:

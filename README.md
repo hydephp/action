@@ -66,15 +66,16 @@ You can enable Pages by visiting the Pages section of your repository settings, 
 
 There are a few more configuration options available, that can be supplied to the action using the `with` keyword, as shown in the examples above.
 
-| Input Name             | Description                                                                                                                                                     | Default Value |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `deploy-to`            | Specify what to do with the compiled site.<br><small>Supported options are: ["artifact", "pages"]</small>                                                       | "artifact"    |
-| `upload-artifact`      | Upload the site artifact, regardless of the `deploy-to` option                                                                                                  | `false`       |
-| `debug`                | Enable additional debug output                                                                                                                                  | `false`       |
-| `framework-version`    | Specify the HydePHP Framework version to use<br><small>(only applicable for [anonymous projects](https://hydephp.github.io/action/#anonymous-projects))</small> | "latest"      |
-| `directory`            | The directory to use as the project root                                                                                                                        | none          |
-| `config`               | String of lines to add to the `hyde.yml` config file                                                                                                            | none          |
-| `env`                  | List of environment variables to set in the format `NAME=value`                                                                                                 | _none_        |
+| Input Name          | Description                                                                                                                                                     | Default Value |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| `deploy-to`         | Specify what to do with the compiled site.<br><small>Supported options are: ["artifact", "pages"]</small>                                                       | "artifact"    |
+| `upload-artifact`   | Upload the site artifact, regardless of the `deploy-to` option                                                                                                  | `false`       |
+| `debug`             | Enable additional debug output                                                                                                                                  | `false`       |
+| `framework-version` | Specify the HydePHP Framework version to use<br><small>(only applicable for [anonymous projects](https://hydephp.github.io/action/#anonymous-projects))</small> | "latest"      |
+| `directory`         | The directory to use as the project root                                                                                                                        | none          |
+| `config`            | String of lines to add to the `hyde.yml` config file                                                                                                            | none          |
+| `env`               | List of environment variables to set in the format `NAME=value`                                                                                                 | _none_        |
+| `rss`               | Enable the build of the RSS feed                                                                                                                                | `false`       |
 
 ## Further documentation
 
