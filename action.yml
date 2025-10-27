@@ -163,7 +163,7 @@ runs:
 
     - name: Upload artifact
       if: inputs.deploy-to == 'artifact' || inputs.upload-artifact == 'true'
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: ${{ inputs.artifact-name }}
         path: _site # TODO: Get this from the config file in case it's customized
