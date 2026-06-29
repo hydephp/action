@@ -75,6 +75,8 @@ There are a few more configuration options available, that can be supplied to th
 | `directory`            | The directory to use as the project root                                                                                                                        | none          |
 | `config`               | String of lines to add to the `hyde.yml` config file                                                                                                            | none          |
 | `env`                  | List of environment variables to set in the format `NAME=value`                                                                                                 | _none_        |
+| `pre-build`            | Shell commands to run after dependencies are installed, but before the site is built                                                                             | _none_        |
+| `post-build`           | Shell commands to run after the site is built, but before it is deployed                                                                                         | _none_        |
 
 ## Further documentation
 

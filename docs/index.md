@@ -213,6 +213,48 @@ Example:
 
 See the [HydePHP documentation](https://hydephp.com/docs/1.x/customization#yaml-configuration) for more information on the available configuration options and how to use the `hyde.yml` file.
 
+### `pre-build`
+
+You can run arbitrary shell commands after the project dependencies have been installed, but before the site is built, using the `pre-build` input. This is useful for fetching remote data, generating source files, or running any custom tooling that needs to happen before the build.
+
+*   **Description**: Shell commands to run after dependencies are installed, but before the site is built
+*   **Required**: `false`
+*   **Default**: `""`
+
+The commands run in the project root directory.
+
+Example:
+
+```yaml
+- uses: hydephp/action@master
+  with:
+    deploy-to: "pages"
+    pre-build: |
+      ./scripts/fetch-content.sh
+      npm ci && npm run build
+```
+
+### `post-build`
+
+You can run arbitrary shell commands after the site has been built, but before it is deployed, using the `post-build` input. This is useful for post-processing the compiled site, generating extra files, or running any custom tooling against the output before it is uploaded or deployed.
+
+*   **Description**: Shell commands to run after the site is built, but before it is deployed
+*   **Required**: `false`
+*   **Default**: `""`
+
+The commands run in the project root directory, where the compiled site is available in the `_site` directory.
+
+Example:
+
+```yaml
+- uses: hydephp/action@master
+  with:
+    deploy-to: "pages"
+    post-build: |
+      echo "example.com" > _site/CNAME
+      ./scripts/optimize-images.sh
+```
+
 ### Environment variables
 
 >warning If your inputs contain sensitive information, you should use [GitHub Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) to store them.

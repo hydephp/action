@@ -58,6 +58,16 @@ inputs:
     required: false
     default: "build"
 
+  pre-build:
+    description: 'Shell commands to run after dependencies are installed, but before the site is built'
+    required: false
+    default: ""
+
+  post-build:
+    description: 'Shell commands to run after the site is built, but before it is deployed'
+    required: false
+    default: ""
+
 outputs:
   install-strategy:
     description: 'The install strategy used'
@@ -153,13 +163,21 @@ runs:
       run: bash check-site-url.sh
       shell: bash
 
-    # TODO: Add pre-build hook to run some bash commands?
+    # Run user-defined commands after dependencies are installed, but before the site is built.
+    - name: Run pre-build hook
+      if: inputs.pre-build != ''
+      run: ${{ inputs.pre-build }}
+      shell: bash
 
     - name: Build the site
       run: php hyde build --no-interaction --ansi
       shell: bash
 
-    # TODO: Add post-build hook to run some bash commands?
+    # Run user-defined commands after the site is built, but before it is deployed.
+    - name: Run post-build hook
+      if: inputs.post-build != ''
+      run: ${{ inputs.post-build }}
+      shell: bash
 
     - name: Upload artifact
       if: inputs.deploy-to == 'artifact' || inputs.upload-artifact == 'true'
